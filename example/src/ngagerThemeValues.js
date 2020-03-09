@@ -1,0 +1,11 @@
+export const NGAGER_COLOR_WHITE = '#f0f4fc';
+export const NGAGER_COLOR_CTA = '#9acf61';
+export const NGAGER_COLOR_RED = '#f55e53';
+export const NGAGER_COLOR_BLACK = '#778091';
+export const NGAGER_COLOR_BRAND = '#3e4b64';
+export const NGAGER_COLOR_BRANDLIGHT = '#6fa0ff';
+export const NGAGER_COLOR_UNDERLINE = '#bcd2f9';
+export const NGAGER_COLOR_FADED = '#d6e0f3';
+export const NGAGER_BUTTON_HEIGHT = 50;
+export const NGAGER_COLOR_TABLEROWSEPARATOR = '#dee8fc';
+export const NGAGER_COLOR_AVATAR_ICON = '#96b2e8';
