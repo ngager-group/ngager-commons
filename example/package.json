@@ -5,20 +5,21 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "react-tap-event-plugin": "^2.0.1",
+    "clean-webpack-plugin": "^0.1.19",
     "css-loader": "^3.4.2",
     "ngager-commons": "file:..",
     "prop-types": "^15.6.2",
     "react": "15.6.2",
     "react-dom": "15.6.2",
     "react-scripts": "^3.2.0",
+    "react-tap-event-plugin": "^2.0.1",
     "style-loader": "^1.1.3"
   },
   "scripts": {
     "start": "webpack-dev-server",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "build": "webpack --config webpack-build.config.js",
+    "test": "webpack test --env=jsdom",
+    "eject": "webpack eject"
   },
   "browserslist": {
     "production": [
