@@ -89,6 +89,102 @@ export default class App extends Component {
 ## Example
 https://ngager-group.github.io/ngager-commons/
 
+## Components
+#### NgagerSearchField
+```jsx
+NgagerSearchField.propTypes = {
+  height: PropTypes.number,
+  style: PropTypes.instanceOf(Object),
+  initialValue: PropTypes.string,
+  color: PropTypes.string,
+  onChange: PropTypes.func.isRequired,
+  placeholder: PropTypes.string,
+  clearFilterText: PropTypes.string,
+  disabled: PropTypes.bool,
+  underlineShow: PropTypes.bool,
+  clearTextShow: PropTypes.bool,
+  wait: PropTypes.number,
+};
+
+NgagerSearchField.defaultProps = {
+  height: 48,
+  style: {},
+  initialValue: '',
+  color: '#36425A',
+  placeholder: 'Filter...',
+  clearFilterText: 'Clear',
+  disabled: false,
+  underlineShow: true,
+  clearTextShow: true,
+  wait: 0,
+};
+```
+
+#### CircularProgress
+```jsx
+CircularProgress.propTypes = {
+  className: PropTypes.string,
+  color: PropTypes.string,
+  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  thickness: PropTypes.number,
+  style: PropTypes.instanceOf(Object),
+  mainColor: PropTypes.string,
+};
+
+CircularProgress.defaultProps = {
+  className: '',
+  color: null,
+  size: 'regular',
+  thickness: 3,
+  style: null,
+  mainColor: '#36425A',
+};
+```
+
+#### NgagerSelectField
+```jsx
+NgagerSelectField.propTypes = {
+  name: PropTypes.string,
+  multiple: PropTypes.bool,
+  autoWidth: PropTypes.bool,
+  fullWidth: PropTypes.bool,
+  disabled: PropTypes.bool,
+  isLoading: PropTypes.bool,
+  enableSelectAll: PropTypes.bool,
+  selectAllValue: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  selectAllLabel: PropTypes.string,
+  style: PropTypes.instanceOf(Object),
+  defaultValue: PropTypes.oneOfType([PropTypes.instanceOf(Object), PropTypes.instanceOf(Array)]),
+  placeholder: PropTypes.string,
+  color: PropTypes.string,
+  items: PropTypes.instanceOf(Array).isRequired,
+  onChange: PropTypes.func,
+  keyField: PropTypes.string,
+  nameField: PropTypes.string,
+  wait: PropTypes.number,
+};
+
+NgagerSelectField.defaultProps = {
+  style: {},
+  name: null,
+  multiple: false,
+  autoWidth: false,
+  fullWidth: true,
+  disabled: false,
+  isLoading: false,
+  enableSelectAll: false,
+  selectAllValue: null,
+  selectAllLabel: '',
+  defaultValue: null,
+  placeholder: null,
+  color: '#36425A',
+  onChange: () => null,
+  keyField: 'id',
+  nameField: 'name',
+  wait: 0,
+};
+```
+
 ## License
 
 MIT © [ngager-group](https://github.com/ngager-group)
