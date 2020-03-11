@@ -185,6 +185,25 @@ NgagerSelectField.defaultProps = {
 };
 ```
 
+#### NgagerErrorMessage
+```jsx
+NgagerErrorMessage.propTypes = {
+  mainColor: PropTypes.string,
+  style: PropTypes.instanceOf(Object),
+  i18n: PropTypes.instanceOf(Object),
+  message: PropTypes.string,
+  renderButton: PropTypes.func,
+};
+
+NgagerErrorMessage.defaultProps = {
+  mainColor: '#36425A',
+  style: {},
+  i18n: null,
+  message: null,
+  renderButton: null,
+};
+```
+
 ## License
 
 MIT © [ngager-group](https://github.com/ngager-group)

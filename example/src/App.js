@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { NgagerSearchField, CircularProgress, NgagerSelectField } from 'ngager-commons'
+import { NgagerSearchField, CircularProgress, NgagerSelectField, NgagerErrorMessage } from 'ngager-commons'
 
 export default class App extends Component {
   constructor(props) {
@@ -38,35 +38,39 @@ export default class App extends Component {
   render () {
     const { status, filterText } = this.state;
     return (
-      <div className="container">
+        <div className="container">
+          <fieldset>
+            <legend>NgagerSearchField</legend>
+              <NgagerSearchField
+                onChange={this.handleOnFilterTextChange}
+                wait={500}
+              />
+            <span>Filter text: <b>{filterText}</b> </span>
+         </fieldset>
+         <fieldset>
+           <legend>CircularProgress</legend>
+           <div style={{ textAlign: 'center' }}>
+             <CircularProgress />
+           </div>
+        </fieldset>
         <fieldset>
-          <legend>NgagerSearchField</legend>
-            <NgagerSearchField
-              onChange={this.handleOnFilterTextChange}
-              wait={500}
-            />
-          <span>Filter text: <b>{filterText}</b> </span>
+          <legend>NgagerSelectField</legend>
+          <NgagerSelectField
+            autoWidth
+            name="status"
+            items={this.statusOptions}
+            enableSelectAll
+            selectAllLabel="All"
+            placeholder="Status"
+            onChange={this.handleOnStatusChange}
+          />
+          <span style={{ marginTop: 10, marginLeft: 1 }}>Status: <b>{status ? status.name : ''}</b> </span>
        </fieldset>
        <fieldset>
-         <legend>CircularProgress</legend>
-         <div style={{ textAlign: 'center' }}>
-           <CircularProgress />
-         </div>
+         <legend>NgagerErrorMessage</legend>
+         <NgagerErrorMessage />
       </fieldset>
-      <fieldset>
-        <legend>NgagerSelectField</legend>
-        <NgagerSelectField
-          autoWidth
-          name="status"
-          items={this.statusOptions}
-          enableSelectAll
-          selectAllLabel="All"
-          placeholder="Status"
-          onChange={this.handleOnStatusChange}
-        />
-        <span style={{ marginTop: 10, marginLeft: 1 }}>Status: <b>{status ? status.name : ''}</b> </span>
-     </fieldset>
       </div>
-    )
+    );
   }
 }
