@@ -204,6 +204,31 @@ NgagerErrorMessage.defaultProps = {
 };
 ```
 
+#### NgagerTreeView
+```jsx
+const data = {
+  name: 'Parent',
+  children: [
+    {
+      id: 1,
+      name: 'Child 1',
+    },
+    ....
+
+    
+NgagerTreeView.propTypes = {
+  thickness: PropTypes.number,
+  color: PropTypes.string,
+  data: PropTypes.instanceOf(Object).isRequired,
+  renderItem: PropTypes.func.isRequired,
+}
+
+NgagerTreeView.defaultProps = {
+  thickness: 2,
+  color: '#36425A',
+}
+```
+
 ## License
 
 MIT © [ngager-group](https://github.com/ngager-group)

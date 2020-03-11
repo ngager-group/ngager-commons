@@ -9,7 +9,9 @@ body {
   display: flex;
   margin: auto;
   flex-direction: column;
-  max-width: 700px;
+  max-width: 900px;
+  overflow: hidden;
+  height: 100%;
 }
 
 fieldset {
@@ -18,4 +20,34 @@ display: flex;
 padding: 20px;
 justify-content: center;
 align-items: center;
+}
+
+.section {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+  flex-direction: column;
+  padding: 10;
+  max-height: 600;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttons > button {
+  padding: 10;
+  font-size: 14;
+  font-weight: bold;
+  border-radius: 20px;
+  margin: 10;
+  cursor: pointer;
+}
+
+.card {
+  border: 1px solid #DDDDDD;
+  width: 100;
+  height: 200;
+  display: block;
 }
