@@ -37,6 +37,7 @@ const NgagerTreeView = props => {
 const Container = styled.div`
 overflow: auto;
 display: flex;
+justify-content: center;
 flex: 1;
 .tree {
 }
