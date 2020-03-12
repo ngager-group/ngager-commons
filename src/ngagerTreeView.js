@@ -18,9 +18,9 @@ class NgagerTreeView extends PureComponent {
     return (
       <ul>
         {children.map(e => (
-          <li key={e.id}>
+          <li key={e[this.props.idField]}>
             <div className="item">{this.props.renderItem(e)}</div>
-            {this.renderChildren(e.children)}
+            {this.renderChildren(e[this.props.childrenField])}
           </li>
         ))}
       </ul>
@@ -28,7 +28,7 @@ class NgagerTreeView extends PureComponent {
   }
 
   render() {
-    const { thickness, color, data } = this.props;
+    const { thickness, color, data, childrenField } = this.props;
     return (
       <Container
         innerRef={el => { this.container = el || this.container; }}
@@ -39,7 +39,7 @@ class NgagerTreeView extends PureComponent {
           <ul>
             <li>
               <div className="item">{this.props.renderItem(data)}</div>
-              {this.renderChildren(data.children)}
+              {this.renderChildren(data[childrenField])}
             </li>
           </ul>
         </div>
@@ -57,11 +57,13 @@ right: 0;
 top: 0;
 bottom: 0;
 .tree {
+  display: flex;
+  flex: 1;
 }
 
 .tree ul {
   position: relative;
-	padding: 1em 0;
+	padding: 1.5em 0;
   white-space: nowrap;
   margin: 0 auto;
   text-align: center;
@@ -78,7 +80,7 @@ bottom: 0;
   text-align: center;
 	list-style-type: none;
 	position: relative;
-	padding: 1em .5em 0 .5em;
+	padding: 1.5em 1em 0 1em;
   &::before,
   &::after {
     content: '';
@@ -87,7 +89,7 @@ bottom: 0;
     right: 50%;
     border-top: ${props => `${props.thickness}px solid ${props.color}`};
     width: 50%;
-    height: 1em;
+    height: 1.5em;
   }
   &::after {
     right: auto;
@@ -121,7 +123,7 @@ bottom: 0;
   left: 50%;
 	border-left: ${props => `${props.thickness}px solid ${props.color}`};
 	width: 0;
-  height: 1em;
+  height: 1.5em;
 }
 
 .tree li .item {
@@ -154,6 +156,8 @@ bottom: 0;
 `
 NgagerTreeView.propTypes = {
   thickness: PropTypes.number,
+  idField: PropTypes.string,
+  childrenField: PropTypes.string,
   color: PropTypes.string,
   data: PropTypes.instanceOf(Object).isRequired,
   renderItem: PropTypes.func.isRequired,
@@ -161,6 +165,8 @@ NgagerTreeView.propTypes = {
 
 NgagerTreeView.defaultProps = {
   thickness: 2,
+  idField: 'id',
+  childrenField: 'children',
   color: '#36425A',
 }
 

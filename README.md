@@ -215,18 +215,22 @@ const data = {
     },
     ....
 
-    
-NgagerTreeView.propTypes = {
-  thickness: PropTypes.number,
-  color: PropTypes.string,
-  data: PropTypes.instanceOf(Object).isRequired,
-  renderItem: PropTypes.func.isRequired,
-}
 
-NgagerTreeView.defaultProps = {
-  thickness: 2,
-  color: '#36425A',
-}
+  NgagerTreeView.propTypes = {
+    thickness: PropTypes.number,
+    idField: PropTypes.string,
+    childrenField: PropTypes.string,
+    color: PropTypes.string,
+    data: PropTypes.instanceOf(Object).isRequired,
+    renderItem: PropTypes.func.isRequired,
+  }
+
+  NgagerTreeView.defaultProps = {
+    thickness: 2,
+    idField: 'id',
+    childrenField: 'children',
+    color: '#36425A',
+  }
 ```
 
 ## License
