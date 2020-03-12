@@ -4,10 +4,14 @@ import styled from 'styled-components';
 import NoResultsImage from './images/no-results-image.png';
 
 const NgagerErrorMessage = (props) => {
-  const { i18n, style, mainColor, errors } = props;
+  const { i18n, style, mainColor, error } = props;
   let messages;
-  if (errors.length > 0) {
-      messages = errors.map(e => e.message);
+  if (error) {
+      if (Array.isArray(error)) {
+        messages = error.map(e => e.message);
+      } else {
+        messages = [error.message]
+      }
   } else if (props.message) {
     messages.push(props.message);
   } else {
@@ -61,7 +65,7 @@ NgagerErrorMessage.propTypes = {
   mainColor: PropTypes.string,
   style: PropTypes.instanceOf(Object),
   i18n: PropTypes.instanceOf(Object),
-  errors: PropTypes.instanceOf(Array),
+  error: PropTypes.oneOfType([PropTypes.instanceOf(Array), PropTypes.instanceOf(Object)]),
   message: PropTypes.string,
   renderButton: PropTypes.func,
 };
@@ -70,7 +74,7 @@ NgagerErrorMessage.defaultProps = {
   mainColor: '#36425A',
   style: {},
   i18n: null,
-  errors: [],
+  error: null,
   message: null,
   renderButton: null,
 };
