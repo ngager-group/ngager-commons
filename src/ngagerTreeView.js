@@ -1,43 +1,56 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-function renderChildren(children, renderItem) {
-  if (!children || children === undefined || children.length === 0) {
-    return null;
+class NgagerTreeView extends PureComponent {
+  componentDidMount() {
+    // console.log('container', this.container, this.container.offsetWidth);
+    // console.log('tree', this.tree, this.tree.offsetWidth);
+    if (this.tree.offsetWidth > this.container.offsetWidth) {
+      this.container.scrollLeft = (this.tree.offsetWidth - this.container.offsetWidth) / 2;
+    }
   }
-  return (
-    <ul>
-      {children.map(e => (
-        <li key={e.id}>
-          <div className="item">{renderItem(e)}</div>
-          {renderChildren(e.children, renderItem)}
-        </li>
-      ))}
-    </ul>
-  );
-}
 
-const NgagerTreeView = props => {
-  const { thickness, color, data } = props;
-  return (
-    <Container thickness={thickness} color={color}>
-      <div className="tree">
-        <ul>
-          <li>
-            <div className="item">{props.renderItem(data)}</div>
-            {renderChildren(data.children, props.renderItem)}
+  renderChildren(children) {
+    if (!children || children === undefined || children.length === 0) {
+      return null;
+    }
+    return (
+      <ul>
+        {children.map(e => (
+          <li key={e.id}>
+            <div className="item">{this.props.renderItem(e)}</div>
+            {this.renderChildren(e.children)}
           </li>
-        </ul>
-      </div>
-    </Container>
-  );
+        ))}
+      </ul>
+    );
+  }
+
+  render() {
+    const { thickness, color, data } = this.props;
+    return (
+      <Container
+        innerRef={el => { this.container = el || this.container; }}
+        thickness={thickness}
+        color={color}
+      >
+        <div className="tree" ref={el => { this.tree = el || this.tree; }}>
+          <ul>
+            <li>
+              <div className="item">{this.props.renderItem(data)}</div>
+              {this.renderChildren(data.children)}
+            </li>
+          </ul>
+        </div>
+      </Container>
+    );
+  }
 }
 
 const Container = styled.div`
 overflow: auto;
 display: flex;
-justify-content: center;
 flex: 1;
 .tree {
 }
