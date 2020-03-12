@@ -34,7 +34,7 @@ class SmartObject {
   }
 
   getData(hasChanged = null) {
-    if (this.hasChanged !== null) {
+    if (hasChanged !== null) {
       this.hasChanged = hasChanged;
       return this.data;
     }
