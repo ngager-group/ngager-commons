@@ -4,22 +4,24 @@ import styled from 'styled-components';
 import NoResultsImage from './images/no-results-image.png';
 
 const NgagerErrorMessage = (props) => {
-  const { i18n, style, mainColor } = props;
-  let message;
-  if (!props.message) {
-    if (i18n) {
-      message = i18n.t('sorry_the_page_you_are_looking_for_does_not_exist');
-    } else {
-      message = 'Sorry, The page you are looking for does not exist';
-    }
+  const { i18n, style, mainColor, errors } = props;
+  let messages;
+  if (errors.length > 0) {
+      messages = errors.map(e => e.message);
+  } else if (props.message) {
+    messages.push(props.message);
   } else {
-    message = props.message;
+    if (i18n) {
+      messages.push(i18n.t('sorry_the_page_you_are_looking_for_does_not_exist'));
+    } else {
+      messages.push('Sorry, The page you are looking for does not exist');
+    }
   }
   return (
     <Container mainColor={mainColor} className="page-not-found" style={style}>
       <div className="unauthorized-div animated shake">
         <img alt="No result" src={NoResultsImage} />
-        <p>{message}</p>
+        {messages.map((m, id) => <p key={id}>{m}</p>)}
         {props.renderButton && props.renderButton()}
       </div>
     </Container>
@@ -59,6 +61,7 @@ NgagerErrorMessage.propTypes = {
   mainColor: PropTypes.string,
   style: PropTypes.instanceOf(Object),
   i18n: PropTypes.instanceOf(Object),
+  errors: PropTypes.instanceOf(Array),
   message: PropTypes.string,
   renderButton: PropTypes.func,
 };
@@ -67,6 +70,7 @@ NgagerErrorMessage.defaultProps = {
   mainColor: '#36425A',
   style: {},
   i18n: null,
+  errors: [],
   message: null,
   renderButton: null,
 };

@@ -191,6 +191,7 @@ NgagerErrorMessage.propTypes = {
   mainColor: PropTypes.string,
   style: PropTypes.instanceOf(Object),
   i18n: PropTypes.instanceOf(Object),
+  errors: PropTypes.instanceOf(Array),
   message: PropTypes.string,
   renderButton: PropTypes.func,
 };
@@ -199,6 +200,7 @@ NgagerErrorMessage.defaultProps = {
   mainColor: '#36425A',
   style: {},
   i18n: null,
+  errors: [],
   message: null,
   renderButton: null,
 };
