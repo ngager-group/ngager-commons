@@ -235,6 +235,81 @@ const data = {
   }
 ```
 
+#### NgagerButton
+```jsx
+NgagerButton.propTypes = {
+  history: PropTypes.instanceOf(Object),
+  confirmMessage: PropTypes.string,
+  rounded: PropTypes.bool,
+  icon: PropTypes.string,
+  style: PropTypes.instanceOf(Object),
+  buttonText: PropTypes.string,
+  processingText: PropTypes.string,
+  theme: PropTypes.shape({
+    backgroundColor: PropTypes.string,
+  }),
+  isProcessing: PropTypes.bool,
+  disabled: PropTypes.bool,
+  onClick: PropTypes.func,
+  link: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Object)]),
+};
+
+NgagerButton.defaultProps = {
+  history: null,
+  confirmMessage: null,
+  rounded: true,
+  icon: null,
+  style: {},
+  buttonText: '',
+  iconColor: 'rgb(119, 128, 145)',
+  processingText: 'Processing',
+  theme: {
+    backgroundColor: '',
+  },
+  disabled: false,
+  isProcessing: false,
+  onClick: () => null,
+  link: null,
+};
+```
+
+#### NgagerGroupButtons
+```jsx
+NgagerGroupButtons.propTypes = {
+  buttons: PropTypes.instanceOf(Array).isRequired,
+  style: PropTypes.instanceOf(Object),
+};
+
+NgagerGroupButtons.defaultProps = {
+  style: {},
+};
+```
+
+#### ConfirmationDialog
+```jsx
+ConfirmationDialog.propTypes = {
+  i18n: PropTypes.instanceOf(Object),
+  open: PropTypes.bool,
+  type: PropTypes.string,
+  title: PropTypes.oneOfType([PropTypes.string, PropTypes.func]).isRequired,
+  onClickCancel: PropTypes.func,
+  onClickOK: PropTypes.func.isRequired,
+  isProcessing: PropTypes.bool,
+  processingText: PropTypes.string,
+  modal: PropTypes.bool,
+};
+
+ConfirmationDialog.defaultProps = {
+  i18n: defaultTranslation,
+  open: false,
+  type: 'confirm',
+  onClickCancel: null,
+  isProcessing: false,
+  processingText: 'Processing...',
+  modal: false,
+};
+```
+
 ## License
 
 MIT © [ngager-group](https://github.com/ngager-group)

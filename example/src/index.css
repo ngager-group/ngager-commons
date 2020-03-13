@@ -36,6 +36,8 @@ align-items: center;
 .buttons {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: flex-start;
 }
 
 .buttons > button {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { NgagerSearchField, CircularProgress, NgagerSelectField, NgagerErrorMessage, NgagerTreeView } from 'ngager-commons'
+import { NgagerSearchField, CircularProgress, NgagerSelectField, NgagerErrorMessage, NgagerTreeView, ConfirmationDialog, NgagerButton, NgagerGroupButtons } from 'ngager-commons'
 
 export default class App extends Component {
   constructor(props) {
@@ -99,60 +99,6 @@ export default class App extends Component {
           {
             id: 2,
             name: 'Child 2',
-            children: [
-              {
-                id: 21,
-                name: 'Grand Child 21',
-                children: [
-                  {
-                    id: 211,
-                    name: 'Grand Child Child 211',
-                    children: [
-                      {
-                        id: 2111,
-                        name: 'Grand Child Child 2111',
-                        children: [
-                          {
-                            id: 21111,
-                            name: 'Grand Child Child 21111',
-                            children: [
-                              {
-                                id: 211111,
-                                name: 'Grand Child Child 211111',
-                              },
-                            ],
-                          },
-                        ],
-                      },
-                    ],
-                  },
-                ],
-              },
-              {
-                id: 22,
-                name: 'Grand Child 22',
-              },
-              {
-                id: 23,
-                name: 'Grand Child 23',
-              },
-              {
-                id: 24,
-                name: 'Grand Child 24',
-              },
-              {
-                id: 25,
-                name: 'Grand Child 25',
-              },
-              {
-                id: 26,
-                name: 'Grand Child 26',
-              },
-              {
-                id: 27,
-                name: 'Grand Child 27',
-              },
-            ],
           },
         ],
       }
@@ -171,6 +117,53 @@ export default class App extends Component {
       );
     }
 
+    if (type === 'ConfirmationDialog') {
+      return (
+        <div className="section">
+          <ConfirmationDialog
+            open
+            type="confirm"
+            title="This is confirmation text!"
+            onClickOK={() => {
+              console.log('Click OK');
+              this.setState({ type: null });
+            }}
+            onClickCancel={() => {
+              console.log('Click Cancel');
+              this.setState({ type: null });
+            }}
+          />
+       </div>
+      );
+    }
+
+    if (type === 'NgagerGroupButtons') {
+      const buttons = [
+        <NgagerButton
+          rounded={false}
+          key={0}
+          style={{
+            width: 200,
+            backgroundColor: '#fff',
+            borderColor: '#bbb',
+            color: '#36425A',
+          }}
+          buttonText="Back"
+        />,
+        <NgagerButton
+          rounded={false}
+          key={1}
+          style={{ width: 200 }}
+          buttonText="Endorse"
+        />,
+      ];
+      return (
+        <div className="section">
+          <NgagerGroupButtons buttons={buttons} />
+       </div>
+      );
+    }
+
     return null;
   }
 
@@ -183,6 +176,8 @@ export default class App extends Component {
           <button id="NgagerSelectField" onClick={this.handleOnClick}>NgagerSelectField</button>
           <button id="NgagerErrorMessage" onClick={this.handleOnClick}>NgagerErrorMessage</button>
           <button id="NgagerTreeView" onClick={this.handleOnClick}>NgagerTreeView</button>
+          <button id="ConfirmationDialog" onClick={this.handleOnClick}>ConfirmationDialog</button>
+          <button id="NgagerGroupButtons" onClick={this.handleOnClick}>NgagerGroupButtons</button>
         </div>
         {this.renderComponent()}
       </div>

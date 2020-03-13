@@ -9,6 +9,7 @@ const Dir = {
 };
 
 module.exports = {
+  entry: ['@babel/polyfill', path.resolve(__dirname, 'src')],
   mode: 'production',
   output: {
     path: Dir.build,
