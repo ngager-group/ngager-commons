@@ -91,6 +91,7 @@ class NgagerIconButton extends PureComponent {
 const Container = styled.div`
 text-align: center;
 cursor: pointer;
+display: inline-block;
 
 &.disabled {
   opacity: 0.5;
