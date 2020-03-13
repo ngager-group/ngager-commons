@@ -122,7 +122,7 @@ bottom: 0;
   top: 0;
   left: 50%;
 	border-left: ${props => `${props.thickness}px solid ${props.color}`};
-	width: 0;
+	width: ${props => `${props.thickness}px`};
   height: 1.5em;
 }
 
