@@ -5,7 +5,9 @@ import NoResultsImage from './images/no-results-image.png';
 
 const NgagerErrorMessage = (props) => {
   const { i18n, style, mainColor, error } = props;
-  let messages;
+  let messages = [];
+  console.log('dada', messages);
+  console.log('dada', messages);
   if (error) {
       if (Array.isArray(error)) {
         messages = error.map(e => e.message);

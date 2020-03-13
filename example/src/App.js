@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { NgagerSearchField, CircularProgress, NgagerSelectField, NgagerErrorMessage, NgagerTreeView, ConfirmationDialog, NgagerButton, NgagerGroupButtons } from 'ngager-commons'
+import { NgagerSearchField, CircularProgress, NgagerSelectField, NgagerErrorMessage, NgagerTreeView, ConfirmationDialog, NgagerButton, NgagerGroupButtons, NgagerIconButton } from 'ngager-commons'
 
 export default class App extends Component {
   constructor(props) {
@@ -164,6 +164,21 @@ export default class App extends Component {
       );
     }
 
+    if (type === 'NgagerIconButton') {
+      return (
+        <div className="section">
+          <div style={{ width: 50, height: 50, margin: 'auto' }}>
+            <NgagerIconButton
+              confirmMessage={'Do you want to remove this item?'}
+              onClick={() => console.log('Confirm!')}
+            >
+              <i style={{ fontSize: 50, color: 'orangered' }} className="fa fa-times-circle" aria-hidden="true"></i>
+            </NgagerIconButton>
+          </div>
+        </div>
+      )
+    }
+
     return null;
   }
 
@@ -178,6 +193,7 @@ export default class App extends Component {
           <button id="NgagerTreeView" onClick={this.handleOnClick}>NgagerTreeView</button>
           <button id="ConfirmationDialog" onClick={this.handleOnClick}>ConfirmationDialog</button>
           <button id="NgagerGroupButtons" onClick={this.handleOnClick}>NgagerGroupButtons</button>
+          <button id="NgagerIconButton" onClick={this.handleOnClick}>NgagerIconButton</button>
         </div>
         {this.renderComponent()}
       </div>

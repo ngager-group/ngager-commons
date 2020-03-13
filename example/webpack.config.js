@@ -13,8 +13,23 @@ module.exports = {
   },
   module: {
     rules: [
+      // {
+      //   test: /\.js?$/,
+      //   include: path.resolve(__dirname, 'node_modules/ngager-commons'),
+      //   exclude: path.resolve(__dirname, 'node_modules/ngager-commons/node_modules'),
+      //   loader: 'babel-loader',
+      //   query: {
+      //     plugins: [
+      //       '@babel/plugin-proposal-object-rest-spread',
+      //       '@babel/plugin-transform-async-to-generator',
+      //       '@babel/plugin-proposal-class-properties',
+      //     ],
+      //     presets: ['@babel/preset-react', '@babel/preset-env'],
+      //   },
+      // },
       {
         test: /\.js$/,
+        exclude: /node_modules/,
         use: 'babel-loader',
       },
       {

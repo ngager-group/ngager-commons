@@ -7,5 +7,17 @@ import SmartObject from './smartObject';
 import ConfirmationDialog from './confirmationDialog';
 import NgagerButton from './ngagerButton';
 import NgagerGroupButtons from './ngagerGroupButtons';
+import NgagerIconButton from './ngagerIconButton';
 
-export { NgagerSearchField, CircularProgress, NgagerSelectField, NgagerErrorMessage, NgagerTreeView, SmartObject, NgagerButton, NgagerGroupButtons, ConfirmationDialog };
+export {
+  NgagerSearchField,
+  CircularProgress,
+  NgagerSelectField,
+  NgagerErrorMessage,
+  NgagerTreeView,
+  SmartObject,
+  NgagerButton,
+  NgagerGroupButtons,
+  ConfirmationDialog,
+  NgagerIconButton,
+};
