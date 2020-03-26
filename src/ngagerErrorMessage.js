@@ -2,12 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import NoResultsImage from './images/no-results-image.png';
+import { NGAGER_COLOR_BRAND } from './theme';
 
 const NgagerErrorMessage = (props) => {
   const { i18n, style, mainColor, error } = props;
   let messages = [];
-  console.log('dada', messages);
-  console.log('dada', messages);
   if (error) {
       if (Array.isArray(error)) {
         messages = error.map(e => e.message);
@@ -73,7 +72,7 @@ NgagerErrorMessage.propTypes = {
 };
 
 NgagerErrorMessage.defaultProps = {
-  mainColor: '#36425A',
+  mainColor: NGAGER_COLOR_BRAND,
   style: {},
   i18n: null,
   error: null,

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import FontIcon from 'material-ui/FontIcon';
 import styled from 'styled-components';
 import ConfirmationDialog from './confirmationDialog';
+import { NGAGER_COLOR_BRAND } from './theme';
 
 class NgagerButton extends PureComponent {
   constructor(props) {
@@ -68,10 +69,14 @@ class NgagerButton extends PureComponent {
     const iconStyle = !this.props.icon
       ? { fontSize: 14, marginRight: '5px' }
       : { fontSize: 14, color: 'inherit' };
-    const backgroundColor =
-      this.props.theme && this.props.theme.backgroundColor
-        ? this.props.theme.backgroundColor
-        : '#36425A';
+    let backgroundColor;
+    if (this.props.backgroundColor) {
+      backgroundColor = this.props.backgroundColor;
+    } else if (this.props.theme && this.props.theme.backgroundColor) {
+      backgroundColor = this.props.theme.backgroundColor;
+    } else {
+      backgroundColor = NGAGER_COLOR_BRAND;
+    }
     const style = Object.assign(
       {},
       { backgroundColor: backgroundColor, borderColor: backgroundColor },
@@ -160,6 +165,7 @@ NgagerButton.propTypes = {
   theme: PropTypes.shape({
     backgroundColor: PropTypes.string,
   }),
+  backgroundColor: PropTypes.string,
   isProcessing: PropTypes.bool,
   disabled: PropTypes.bool,
   onClick: PropTypes.func,
@@ -175,9 +181,8 @@ NgagerButton.defaultProps = {
   buttonText: '',
   iconColor: 'rgb(119, 128, 145)',
   processingText: 'Processing',
-  theme: {
-    backgroundColor: '',
-  },
+  theme: null,
+  backgroundColor: null,
   disabled: false,
   isProcessing: false,
   onClick: () => null,
