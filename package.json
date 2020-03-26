@@ -1,13 +1,13 @@
 {
   "name": "ngager-commons",
-  "version": "1.0.19",
+  "version": "1.0.20",
   "description": "ReactJS common components",
   "author": "ngager-group",
   "license": "MIT",
   "repository": "ngager-group/ngager-commons",
   "main": "dist/index.js",
-  "module": "dist/index.es.js",
-  "jsnext:main": "dist/index.es.js",
+  "module": "dist/index.js",
+  "jsnext:main": "dist/index.js",
   "engines": {
     "node": ">=8",
     "npm": ">=5"
