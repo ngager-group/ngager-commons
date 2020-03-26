@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import CircularProgress from './circularProgress';
-import ConfirmationDialog from './confirmationDialog';
+import CircularProgress from '../CircularProgress';
+import ConfirmationDialog from '../ConfirmationDialog';
 
 class NgagerIconButton extends PureComponent {
   constructor(props) {

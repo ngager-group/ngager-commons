@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import FontIcon from 'material-ui/FontIcon';
 import styled from 'styled-components';
-import ConfirmationDialog from './confirmationDialog';
-import { NGAGER_COLOR_BRAND } from './theme';
+import ConfirmationDialog from '../ConfirmationDialog';
+import { NGAGER_COLOR_BRAND } from '../theme';
 
 class NgagerButton extends PureComponent {
   constructor(props) {

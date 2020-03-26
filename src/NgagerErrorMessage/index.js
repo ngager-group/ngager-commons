@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import NoResultsImage from './images/no-results-image.png';
-import { NGAGER_COLOR_BRAND } from './theme';
+import NoResultsImage from './no-results-image.png';
+import { NGAGER_COLOR_BRAND } from '../theme';
 
 const NgagerErrorMessage = (props) => {
   const { i18n, style, mainColor, error } = props;

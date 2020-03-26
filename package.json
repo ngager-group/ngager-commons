@@ -1,6 +1,6 @@
 {
   "name": "ngager-commons",
-  "version": "1.0.18",
+  "version": "1.0.19",
   "description": "ReactJS common components",
   "author": "ngager-group",
   "license": "MIT",
@@ -28,13 +28,14 @@
     "react-dom": "^15.6.2"
   },
   "devDependencies": {
-    "@svgr/rollup": "^2.4.1",
     "@babel/core": "^7.5.5",
     "@babel/plugin-external-helpers": "^7.5.5",
     "@babel/plugin-proposal-class-properties": "^7.5.5",
-    "@babel/preset-react": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.5.5",
     "@babel/preset-stage-0": "^7.0.0",
+    "@rollup/plugin-url": "^4.0.0",
+    "@svgr/rollup": "^2.4.1",
     "cross-env": "^6.0.3",
     "eslint": "^6.7.1",
     "eslint-config-standard": "^14.1.0",
@@ -51,10 +52,10 @@
     "rollup": "^1.27.5",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-multi-input": "^1.1.1",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-peer-deps-external": "^2.2.0",
-    "rollup-plugin-postcss": "^2.0.3",
-    "@rollup/plugin-url": "^4.0.0"
+    "rollup-plugin-postcss": "^2.0.3"
   },
   "files": [
     "dist"

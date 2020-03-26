@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { NgagerSearchField, CircularProgress, NgagerSelectField, NgagerErrorMessage, NgagerTreeView, ConfirmationDialog, NgagerButton, NgagerGroupButtons, NgagerIconButton } from 'ngager-commons'
+import { NgagerSearchField, NgagerSelectField, NgagerErrorMessage, NgagerTreeView, ConfirmationDialog, NgagerButton, NgagerGroupButtons, NgagerIconButton, CircularProgress } from 'ngager-commons'
 
 export default class App extends Component {
   constructor(props) {

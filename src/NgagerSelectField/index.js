@@ -4,7 +4,7 @@ import _debounce from 'lodash/debounce';
 import SelectField from 'material-ui/SelectField';
 import styled from 'styled-components';
 import MenuItem from 'material-ui/MenuItem';
-import CircularProgress from './circularProgress';
+import CircularProgress from '../CircularProgress';
 
 function stripHtml(content) {
   const div = document.createElement('div');
