@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Dialog from 'material-ui/Dialog';
 import styled from 'styled-components';
-import NgagerButton from '../ngagerButton';
+import NgagerButton from '../NgagerButton';
 import { defaultTranslation } from '../utils';
 
 const styles = {
