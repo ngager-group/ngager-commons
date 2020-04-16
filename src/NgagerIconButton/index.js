@@ -92,6 +92,7 @@ const Container = styled.div`
 text-align: center;
 cursor: pointer;
 display: inline-block;
+outline: none;
 
 &.disabled {
   opacity: 0.5;
