@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { NgagerSearchField, NgagerSelectField, NgagerErrorMessage, NgagerTreeView, ConfirmationDialog, NgagerButton, NgagerGroupButtons, NgagerIconButton, CircularProgress } from 'ngager-commons'
+import PropTypes from 'prop-types';
+import { NgagerSearchField, NgagerSelectField, NgagerErrorMessage, NgagerTreeView, ConfirmationDialog, NgagerButton, NgagerGroupButtons, NgagerIconButton, CircularProgress, eventListener } from 'ngager-commons'
 
-export default class App extends Component {
+class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -28,6 +29,10 @@ export default class App extends Component {
     this.handleOnClick = this.handleOnClick.bind(this);
   }
 
+  componentDidMount() {
+    this.props.addEventListener('click', this.handleOnClick);
+  }
+
   handleOnFilterTextChange(filterText) {
     this.setState({ filterText });
   }
@@ -38,6 +43,7 @@ export default class App extends Component {
   }
 
   handleOnClick(e) {
+    console.log('handleOnClick', e);
     this.setState({ type: e.target.id });
   }
 
@@ -200,3 +206,9 @@ export default class App extends Component {
     );
   }
 }
+
+App.propTypes = {
+  addEventListener: PropTypes.func.isRequired,
+};
+
+export default eventListener(App);

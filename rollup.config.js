@@ -22,6 +22,7 @@ export default {
     'src/NgagerSearchField/index.js',
     'src/NgagerSelectField/index.js',
     'src/NgagerTreeView/index.js',
+    'src/eventListener/index.js',
     'src/SmartObject/index.js'
   ],
   output: {
