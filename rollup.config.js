@@ -23,6 +23,7 @@ export default {
     'src/NgagerSelectField/index.js',
     'src/NgagerTreeView/index.js',
     'src/eventListener/index.js',
+    'src/MockApi/index.js',
     'src/SmartObject/index.js'
   ],
   output: {

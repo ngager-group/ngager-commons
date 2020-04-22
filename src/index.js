@@ -9,6 +9,7 @@ import NgagerButton from './NgagerButton';
 import NgagerGroupButtons from './NgagerGroupButtons';
 import NgagerIconButton from './NgagerIconButton';
 import eventListener from './eventListener';
+import MockApi from './MockApi';
 
 export {
   NgagerSearchField,
@@ -22,4 +23,5 @@ export {
   ConfirmationDialog,
   NgagerIconButton,
   eventListener,
+  MockApi,
 };
