@@ -29,7 +29,7 @@ class NgagerIconButton extends PureComponent {
       return;
     }
     this.setState({ isProcessing: true }, () => {
-      Promise.all([this.props.onClick()]).then(() => {
+      Promise.all([this.props.onClick(this.props.data)]).then(() => {
         if (!this.mounted) {
           return;
         }
@@ -105,6 +105,7 @@ outline: none;
 `
 
 NgagerIconButton.propTypes = {
+  data: PropTypes.oneOfType([PropTypes.instanceOf(Object), PropTypes.string, PropTypes.number]),
   disabled: PropTypes.bool,
   confirmMessage: PropTypes.string,
   style: PropTypes.instanceOf(Object),
@@ -113,6 +114,7 @@ NgagerIconButton.propTypes = {
 };
 
 NgagerIconButton.defaultProps = {
+  data: null,
   disabled: false,
   confirmMessage: null,
   style: {},
