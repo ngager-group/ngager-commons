@@ -310,6 +310,42 @@ ConfirmationDialog.defaultProps = {
 };
 ```
 
+#### NgagerIconButton
+```jsx
+NgagerIconButton.propTypes = {
+  disabled: PropTypes.bool,
+  confirmMessage: PropTypes.string,
+  style: PropTypes.instanceOf(Object),
+  children: PropTypes.element.isRequired,
+  onClick: PropTypes.func,
+};
+
+NgagerIconButton.defaultProps = {
+  disabled: false,
+  confirmMessage: null,
+  style: {},
+  onClick: null,
+};
+```
+
+
+#### NgagerAvatar
+```jsx
+NgagerAvatar.propTypes = {
+  style: PropTypes.instanceOf(Object),
+  size: PropTypes.number,
+  borderWidth: PropTypes.number,
+  image: PropTypes.string,
+};
+
+NgagerAvatar.defaultProps = {
+  style: {},
+  size: 185,
+  borderWidth: 20,
+  image: null,
+};
+```
+
 ## License
 
 MIT © [ngager-group](https://github.com/ngager-group)

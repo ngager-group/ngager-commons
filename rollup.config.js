@@ -24,6 +24,7 @@ export default {
     'src/NgagerTreeView/index.js',
     'src/eventListener/index.js',
     'src/MockApi/index.js',
+    'src/NgagerAvatar/index.js',
     'src/SmartObject/index.js'
   ],
   output: {

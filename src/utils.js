@@ -12,4 +12,25 @@ function newGuid() {
   return `${s4()}${s4()}-${s4()}-'${s4()}-${s4()}-${s4()}${s4()}${s4()}`;
 }
 
-export { defaultTranslation, newGuid };
+function isAwesomeFile(url) {
+  if (!url || typeof url !== 'string') {
+    return false;
+  }
+  if (url.includes('awesomecloudstorage') || url.includes('awesome-images')) {
+    return true;
+  }
+  return false;
+}
+
+function resizeImage(url, size, di = 'width') {
+  if (!isAwesomeFile(url)) {
+    return url;
+  }
+  const newUrl = `${url.replace(
+    'https://awesomecloudstorage.blob.core.windows.net',
+    'https://awesome-images.azureedge.net',
+  )}?${di}=${size}&autorotate=true`;
+  return newUrl;
+}
+
+export { defaultTranslation, newGuid, resizeImage };

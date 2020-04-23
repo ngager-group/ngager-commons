@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types';
-import { NgagerSearchField, NgagerSelectField, NgagerErrorMessage, NgagerTreeView, ConfirmationDialog, NgagerButton, NgagerGroupButtons, NgagerIconButton, CircularProgress, eventListener } from 'ngager-commons'
+// import PropTypes from 'prop-types';
+import { NgagerSearchField, NgagerSelectField, NgagerErrorMessage, NgagerTreeView, ConfirmationDialog, NgagerButton, NgagerGroupButtons, NgagerIconButton, CircularProgress, eventListener, NgagerAvatar } from 'ngager-commons'
 
 class App extends Component {
   constructor(props) {
@@ -29,9 +29,9 @@ class App extends Component {
     this.handleOnClick = this.handleOnClick.bind(this);
   }
 
-  componentDidMount() {
-    this.props.addEventListener('click', this.handleOnClick);
-  }
+  // componentDidMount() {
+  //   this.props.addEventListener('click', this.handleOnClick);
+  // }
 
   handleOnFilterTextChange(filterText) {
     this.setState({ filterText });
@@ -185,6 +185,18 @@ class App extends Component {
       )
     }
 
+    if (type === 'NgagerAvatar') {
+      return (
+        <div className="section">
+          <NgagerAvatar
+            size={200}
+            onClick={e => console.log(e.target)}
+            image="https://awesomecloudstorage.blob.core.windows.net/profilepictures/7993c74f-c53c-4c01-8ae3-98638e9b2559.jpg"
+          />
+        </div>
+      )
+    }
+
     return null;
   }
 
@@ -200,6 +212,7 @@ class App extends Component {
           <button id="ConfirmationDialog" onClick={this.handleOnClick}>ConfirmationDialog</button>
           <button id="NgagerGroupButtons" onClick={this.handleOnClick}>NgagerGroupButtons</button>
           <button id="NgagerIconButton" onClick={this.handleOnClick}>NgagerIconButton</button>
+          <button id="NgagerAvatar" onClick={this.handleOnClick}>NgagerAvatar</button>
         </div>
         {this.renderComponent()}
       </div>
@@ -208,7 +221,7 @@ class App extends Component {
 }
 
 App.propTypes = {
-  addEventListener: PropTypes.func.isRequired,
+  // addEventListener: PropTypes.func.isRequired,
 };
 
 export default eventListener(App);
