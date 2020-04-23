@@ -11,6 +11,7 @@ import NgagerIconButton from './NgagerIconButton';
 import eventListener from './eventListener';
 import MockApi from './MockApi';
 import NgagerAvatar from './NgagerAvatar';
+import SortableList from './SortableList';
 
 export {
   NgagerSearchField,
@@ -26,4 +27,5 @@ export {
   eventListener,
   MockApi,
   NgagerAvatar,
+  SortableList,
 };

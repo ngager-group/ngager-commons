@@ -350,6 +350,21 @@ NgagerAvatar.defaultProps = {
 };
 ```
 
+#### SortableList
+```jsx
+SortableList.propTypes = {
+  name: PropTypes.string.isRequired,
+  className: PropTypes.string,
+  items: PropTypes.arrayOf(Object).isRequired,
+  renderItem: PropTypes.func.isRequired,
+  onChangeItemsOrder: PropTypes.func.isRequired,
+};
+
+SortableList.defaultProps = {
+  className: '',
+};
+```
+
 ## License
 
 MIT © [ngager-group](https://github.com/ngager-group)

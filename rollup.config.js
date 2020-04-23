@@ -25,6 +25,7 @@ export default {
     'src/eventListener/index.js',
     'src/MockApi/index.js',
     'src/NgagerAvatar/index.js',
+    'src/SortableList/index.js',
     'src/SmartObject/index.js'
   ],
   output: {
