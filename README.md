@@ -336,6 +336,8 @@ NgagerAvatar.propTypes = {
   size: PropTypes.number,
   borderWidth: PropTypes.number,
   image: PropTypes.string,
+  onClick: PropTypes.func,
+  mainColor: PropTypes.string,
 };
 
 NgagerAvatar.defaultProps = {
@@ -343,6 +345,8 @@ NgagerAvatar.defaultProps = {
   size: 185,
   borderWidth: 20,
   image: null,
+  onClick: null,
+  mainColor: '#36425A',
 };
 ```
 

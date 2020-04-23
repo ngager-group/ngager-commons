@@ -3,12 +3,13 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { resizeImage } from '../utils';
 
-const NgagerAvatar = ({ style, image, size, borderWidth, onClick }) => {
+const NgagerAvatar = ({ style, image, size, borderWidth, onClick, mainColor }) => {
   const noPhoto =
     !image ||
     image.indexOf('assets/img/icon-profile.png') >= 0 ||
     image.indexOf('default_user_icon.jpg') >= 0;
   const props = {
+    mainColor,
     size,
     style,
     className: 'ngager-avatar',
@@ -31,7 +32,7 @@ const NgagerAvatar = ({ style, image, size, borderWidth, onClick }) => {
             <i className="fa fa-user user-icon" aria-hidden="true" />
           </div>
         )}
-        <div className="circle" style={{ borderWidth }} />
+        {noPhoto === false && <div className="circle" style={{ borderWidth }} />}
       </div>
     </Container>
   );
@@ -75,7 +76,8 @@ margin: auto;
   }
 
   .avatar {
-    background-color: #fff;
+    color: #fff;
+    background-color: ${({ mainColor }) => mainColor};
     width: 100%;
     height: 100%;
     border-radius: 100%;
@@ -101,6 +103,7 @@ NgagerAvatar.propTypes = {
   borderWidth: PropTypes.number,
   image: PropTypes.string,
   onClick: PropTypes.func,
+  mainColor: PropTypes.string,
 };
 
 NgagerAvatar.defaultProps = {
@@ -109,6 +112,7 @@ NgagerAvatar.defaultProps = {
   borderWidth: 20,
   image: null,
   onClick: null,
+  mainColor: '#36425A',
 };
 
 export default NgagerAvatar;

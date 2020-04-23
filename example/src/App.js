@@ -193,6 +193,11 @@ class App extends Component {
             onClick={e => console.log(e.target)}
             image="https://awesomecloudstorage.blob.core.windows.net/profilepictures/7993c74f-c53c-4c01-8ae3-98638e9b2559.jpg"
           />
+          <NgagerAvatar
+            size={200}
+            onClick={e => console.log(e.target)}
+            image={null}
+          />
         </div>
       )
     }
