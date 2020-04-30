@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 // import PropTypes from 'prop-types';
+import ReactTooltip from 'react-tooltip';
 import { NgagerSearchField, NgagerSelectField, NgagerErrorMessage, NgagerTreeView, ConfirmationDialog, NgagerButton, NgagerGroupButtons, NgagerIconButton, CircularProgress, eventListener, NgagerAvatar } from 'ngager-commons'
 
 class App extends Component {
@@ -9,6 +10,7 @@ class App extends Component {
       type: '',
       filterText: '',
       status: null,
+      dataTip: null,
     }
     this.statusOptions = [
       {
@@ -32,6 +34,12 @@ class App extends Component {
   // componentDidMount() {
   //   this.props.addEventListener('click', this.handleOnClick);
   // }
+
+  componentDidUpdate() {
+    setTimeout(() => {
+      ReactTooltip.rebuild();
+    }, 300);
+  }
 
   handleOnFilterTextChange(filterText) {
     this.setState({ filterText });
@@ -189,11 +197,17 @@ class App extends Component {
       return (
         <div className="section">
           <NgagerAvatar
+            style={{ margin: 'auto' }}
+            onMouseLeave={() => console.log('dsadsasa')}
+            onMouseEnter={() => console.log('onMouseEnter')}
+            toolTipId="avatar"
             size={200}
             onClick={e => console.log(e.target)}
             image="https://awesomecloudstorage.blob.core.windows.net/profilepictures/7993c74f-c53c-4c01-8ae3-98638e9b2559.jpg"
           />
           <NgagerAvatar
+            toolTipId="avatar"
+            style={{ margin: 'auto' }}
             size={200}
             onClick={e => console.log(e.target)}
             image={null}
@@ -220,6 +234,15 @@ class App extends Component {
           <button id="NgagerAvatar" onClick={this.handleOnClick}>NgagerAvatar</button>
         </div>
         {this.renderComponent()}
+        <ReactTooltip id="avatar" effect="solid" aria-haspopup="true" place="right" >
+           <p>This is a global react component tooltip</p>
+           <p>You can put every thing here</p>
+           <ul>
+             <li>Word</li>
+             <li>Chart</li>
+             <li>Else</li>
+           </ul>
+        </ReactTooltip>
       </div>
     );
   }

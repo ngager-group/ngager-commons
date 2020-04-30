@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { resizeImage } from '../utils';
 
-const NgagerAvatar = ({ style, image, size, borderWidth, onClick, mainColor }) => {
+const NgagerAvatar = ({ style, image, size, borderWidth, onClick, onMouseEnter, onMouseLeave, mainColor, toolTipId }) => {
   const noPhoto =
     !image ||
     image.indexOf('assets/img/icon-profile.png') >= 0 ||
@@ -20,6 +20,18 @@ const NgagerAvatar = ({ style, image, size, borderWidth, onClick, mainColor }) =
       role: 'button',
       tabIndex: 0,
       onClick,
+    })
+  }
+  if (onMouseEnter) {
+    Object.assign(props, { onMouseEnter });
+  }
+  if (onMouseLeave) {
+    Object.assign(props, { onMouseLeave });
+  }
+  if (toolTipId) {
+    Object.assign(props, {
+      'data-tip': true,
+      'data-for': toolTipId,
     })
   }
   return (
@@ -46,7 +58,7 @@ align-items: center;
 width: ${({ size }) => size};
 height: ${({ size }) => size};
 font-size: ${({ size }) => size / 2};
-margin: auto;
+margin: 0;
 
 &.clickable {
   cursor: pointer;
@@ -102,8 +114,11 @@ NgagerAvatar.propTypes = {
   size: PropTypes.number,
   borderWidth: PropTypes.number,
   image: PropTypes.string,
+  onMouseEnter: PropTypes.func,
+  onMouseLeave: PropTypes.func,
   onClick: PropTypes.func,
   mainColor: PropTypes.string,
+  toolTipId: PropTypes.string,
 };
 
 NgagerAvatar.defaultProps = {
@@ -111,8 +126,11 @@ NgagerAvatar.defaultProps = {
   size: 185,
   borderWidth: 20,
   image: null,
+  onMouseEnter: null,
+  onMouseLeave: null,
   onClick: null,
   mainColor: '#36425A',
+  toolTipId: null,
 };
 
 export default NgagerAvatar;

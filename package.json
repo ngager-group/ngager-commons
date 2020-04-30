@@ -1,6 +1,6 @@
 {
   "name": "ngager-commons",
-  "version": "1.0.29",
+  "version": "1.0.30",
   "description": "ReactJS common components",
   "author": "ngager-group",
   "license": "MIT",
@@ -33,6 +33,7 @@
     "react-tap-event-plugin": "^2.0.1"
   },
   "devDependencies": {
+    "material-ui": "^0.18.7",
     "immutability-helper": "^2.4.0",
     "react-dnd": "^2.4.0",
     "react-tap-event-plugin": "^2.0.1",
