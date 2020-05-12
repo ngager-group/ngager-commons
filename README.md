@@ -364,12 +364,14 @@ SortableList.propTypes = {
   name: PropTypes.string.isRequired,
   className: PropTypes.string,
   items: PropTypes.arrayOf(Object).isRequired,
+  keyExtractor: PropTypes.func,
   renderItem: PropTypes.func.isRequired,
   onChangeItemsOrder: PropTypes.func.isRequired,
 };
 
 SortableList.defaultProps = {
   className: '',
+  keyExtractor: null,
 };
 ```
 

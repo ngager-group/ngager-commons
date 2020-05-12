@@ -200,13 +200,13 @@ class App extends Component {
             style={{ margin: 'auto' }}
             onMouseLeave={() => console.log('dsadsasa')}
             onMouseEnter={() => console.log('onMouseEnter')}
-            toolTipId="avatar"
+            toolTipId="profile-popover"
             size={200}
             onClick={e => console.log(e.target)}
             image="https://awesomecloudstorage.blob.core.windows.net/profilepictures/7993c74f-c53c-4c01-8ae3-98638e9b2559.jpg"
           />
           <NgagerAvatar
-            toolTipId="avatar"
+            toolTipId="profile-popover"
             style={{ margin: 'auto' }}
             size={200}
             onClick={e => console.log(e.target)}
@@ -234,7 +234,7 @@ class App extends Component {
           <button id="NgagerAvatar" onClick={this.handleOnClick}>NgagerAvatar</button>
         </div>
         {this.renderComponent()}
-        <ReactTooltip id="avatar" effect="solid" aria-haspopup="true" place="right" >
+        <ReactTooltip id="profile-popover" effect="solid" aria-haspopup="true" place="right" >
            <p>This is a global react component tooltip</p>
            <p>You can put every thing here</p>
            <ul>
