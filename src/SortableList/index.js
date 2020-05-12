@@ -35,18 +35,22 @@ class SortableList extends PureComponent {
   render() {
     return (
       <Container className={`sortable-list ${this.props.className}`}>
-        {this.state.items.map((item, index) => (
-          <SortableItem
-            name={this.props.name}
-            key={this.props.keyExtractor ? this.props.keyExtractor(item) : item.id}
-            index={index}
-            length={this.props.items.length}
-            item={item}
-            onMovingItem={this.handleOnMovingItem}
-            renderItem={this.props.renderItem}
-            onChangeItemsSequence={this.handleOnChangeItemsSequence}
-          />
-        ))}
+        {this.state.items.map((item, index) => {
+          const id = this.props.keyExtractor ? this.props.keyExtractor(item) : item.id;
+          return (
+            <SortableItem
+              name={this.props.name}
+              key={id}
+              id={id}
+              index={index}
+              length={this.props.items.length}
+              item={item}
+              onMovingItem={this.handleOnMovingItem}
+              renderItem={this.props.renderItem}
+              onChangeItemsSequence={this.handleOnChangeItemsSequence}
+            />
+          )
+        })}
       </Container>
     );
   }

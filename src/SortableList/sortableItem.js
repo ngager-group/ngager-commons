@@ -1,4 +1,5 @@
 /* eslint react/no-find-dom-node: 0 */
+/* eslint react/no-unused-prop-types: 0 */
 /* eslint no-param-reassign: 0 */
 import React, { Component } from 'react';
 import _flow from 'lodash/flow';
@@ -11,6 +12,7 @@ const cardSource = {
     return {
       index: props.index,
       id: props.id,
+      item: props.item,
     };
   },
 };
@@ -103,7 +105,8 @@ SortableItem.propTypes = {
   connectDragPreview: PropTypes.func.isRequired,
   connectDropTarget: PropTypes.func.isRequired,
   isDragging: PropTypes.bool.isRequired,
-  // index: PropTypes.number.isRequired,
+  index: PropTypes.number.isRequired,
+  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   // length: PropTypes.number.isRequired,
   item: PropTypes.shape({
     id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
