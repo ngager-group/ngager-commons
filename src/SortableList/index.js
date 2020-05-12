@@ -38,7 +38,7 @@ class SortableList extends PureComponent {
         {this.state.items.map((item, index) => (
           <SortableItem
             name={this.props.name}
-            key={this.props.keyExtractor ? this.props.keyExtractor() : item.id}
+            key={this.props.keyExtractor ? this.props.keyExtractor(item) : item.id}
             index={index}
             length={this.props.items.length}
             item={item}
