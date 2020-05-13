@@ -25,13 +25,16 @@ class SortableList extends PureComponent {
     const newItems = update(this.state.items, {
       $splice: [[dragIndex, 1], [hoverIndex, 0, dragItem]],
     });
-    newItems[dragIndex].order = hoverIndex;
-    newItems[hoverIndex].order = dragIndex;
     this.setState({ items: newItems });
   }
 
   handleOnChangeItemsSequence() {
-    this.props.onChangeItemsOrder(this.state.items);
+    const items = this.state.items.slice();
+    items.forEach((item, index) => {
+      Object.assign(item, { order: index });
+    })
+    this.setState({ items });
+    this.props.onChangeItemsOrder(items);
   }
 
   render() {
