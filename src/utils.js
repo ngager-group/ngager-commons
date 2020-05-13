@@ -12,6 +12,10 @@ function newGuid() {
   return `${s4()}${s4()}-${s4()}-'${s4()}-${s4()}-${s4()}${s4()}${s4()}`;
 }
 
+function isPromise(p) {
+  return p && Object.prototype.toString.call(p) === '[object Promise]';
+}
+
 function isAwesomeFile(url) {
   if (!url || typeof url !== 'string') {
     return false;
@@ -33,4 +37,4 @@ function resizeImage(url, size, di = 'width') {
   return newUrl;
 }
 
-export { defaultTranslation, newGuid, resizeImage };
+export { defaultTranslation, newGuid, resizeImage, isPromise };

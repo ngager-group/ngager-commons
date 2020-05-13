@@ -316,6 +316,7 @@ NgagerIconButton.propTypes = {
   data: PropTypes.oneOfType([PropTypes.instanceOf(Object), PropTypes.string, PropTypes.number]),
   disabled: PropTypes.bool,
   confirmMessage: PropTypes.string,
+  getConfirmMessage: PropTypes.func,
   style: PropTypes.instanceOf(Object),
   children: PropTypes.element.isRequired,
   onClick: PropTypes.func,
@@ -325,6 +326,7 @@ NgagerIconButton.defaultProps = {
   data: null,
   disabled: false,
   confirmMessage: null,
+  getConfirmMessage: null,
   style: {},
   onClick: null,
 };

@@ -29,6 +29,7 @@ class App extends Component {
     this.handleOnFilterTextChange = this.handleOnFilterTextChange.bind(this);
     this.handleOnStatusChange = this.handleOnStatusChange.bind(this);
     this.handleOnClick = this.handleOnClick.bind(this);
+    this.onGetConfirmMessage = this.onGetConfirmMessage.bind(this);
   }
 
   // componentDidMount() {
@@ -39,6 +40,14 @@ class App extends Component {
     setTimeout(() => {
       ReactTooltip.rebuild();
     }, 300);
+  }
+
+  onGetConfirmMessage() {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve('Hello world');
+      }, 5000);
+    });
   }
 
   handleOnFilterTextChange(filterText) {
@@ -184,6 +193,14 @@ class App extends Component {
           <div style={{ width: 50, height: 50, margin: 'auto' }}>
             <NgagerIconButton
               confirmMessage={'Do you want to remove this item?'}
+              onClick={() => console.log('Confirm!')}
+            >
+              <i style={{ fontSize: 50, color: 'orangered' }} className="fa fa-times-circle" aria-hidden="true"></i>
+            </NgagerIconButton>
+          </div>
+          <div style={{ width: 50, height: 50, margin: 'auto' }}>
+            <NgagerIconButton
+              getConfirmMessage={this.onGetConfirmMessage}
               onClick={() => console.log('Confirm!')}
             >
               <i style={{ fontSize: 50, color: 'orangered' }} className="fa fa-times-circle" aria-hidden="true"></i>

@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import CircularProgress from '../CircularProgress';
+import { isPromise } from '../utils';
 import ConfirmationDialog from '../ConfirmationDialog';
 
 class NgagerIconButton extends PureComponent {
@@ -41,27 +42,47 @@ class NgagerIconButton extends PureComponent {
   handleClickOnIcon(e) {
     e.stopPropagation();
     e.preventDefault();
-    if (!this.props.confirmMessage) {
+    let confirmMessage = null;
+    if (this.props.getConfirmMessage) {
+      const confirmMessageResp = this.props.getConfirmMessage();
+      if (isPromise(confirmMessageResp)) {
+        this.setState({ openConfirmDialog: true, confirmMessage: 'Loading...', isLoading: true });
+        confirmMessageResp.then(m => {
+          if (!m) {
+            this.setState({ openConfirmDialog: false });
+            this.handleOnClick();
+            return;
+          }
+          this.setState({ isLoading: false, confirmMessage: m });
+        })
+        return;
+      }
+      confirmMessage = confirmMessageResp;
+    } else if (this.props.confirmMessage) {
+      confirmMessage = this.props.confirmMessage;
+    }
+    if (!confirmMessage) {
       this.handleOnClick();
       return;
     }
     if (this.state.isProcessing || this.props.disabled) {
       return;
     }
-    this.setState({ openConfirmDialog: true });
+    this.setState({ openConfirmDialog: true, confirmMessage });
   }
 
-  renderConfirmationDialogForDeleting() {
-    const { openConfirmDialog } = this.state;
+  renderConfirmationDialog() {
+    const { confirmMessage, openConfirmDialog, isLoading, isProcessing } = this.state;
     if (openConfirmDialog === false) {
       return null;
     }
     return (
       <ConfirmationDialog
-        isProcessing={this.state.isProcessing}
+        isLoading={isLoading}
+        isProcessing={isProcessing || isLoading}
         open
         type="confirm"
-        title={this.props.confirmMessage}
+        title={confirmMessage}
         onClickOK={this.handleOnClick}
         onClickCancel={() => this.setState({ openConfirmDialog: false })}
       />
@@ -77,7 +98,7 @@ class NgagerIconButton extends PureComponent {
         tabIndex={0}
         onClick={this.handleClickOnIcon}
       >
-        {this.renderConfirmationDialogForDeleting()}
+        {this.renderConfirmationDialog()}
         {this.state.isProcessing ? (
           <CircularProgress thickness={1} size={14} />
         ) : (
@@ -108,6 +129,7 @@ NgagerIconButton.propTypes = {
   data: PropTypes.oneOfType([PropTypes.instanceOf(Object), PropTypes.string, PropTypes.number]),
   disabled: PropTypes.bool,
   confirmMessage: PropTypes.string,
+  getConfirmMessage: PropTypes.func,
   style: PropTypes.instanceOf(Object),
   children: PropTypes.element.isRequired,
   onClick: PropTypes.func,
@@ -117,6 +139,7 @@ NgagerIconButton.defaultProps = {
   data: null,
   disabled: false,
   confirmMessage: null,
+  getConfirmMessage: null,
   style: {},
   onClick: null,
 };

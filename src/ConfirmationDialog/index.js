@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Dialog from 'material-ui/Dialog';
 import styled from 'styled-components';
 import NgagerButton from '../NgagerButton';
+import CircularProgress from '../CircularProgress';
 import { defaultTranslation } from '../utils';
 
 const styles = {
@@ -13,6 +14,25 @@ const styles = {
     backgroundColor: '#f0f4fc',
   },
   bodyStyle: { backgroundColor: '#f0f4fc', paddingTop: 60 },
+  buttons: {
+    cancelOnly: {
+      width: 200,
+      height: 40,
+      backgroundColor: '#FFF',
+      border: '1px solid',
+      color: '#36425A',
+    },
+    cancel: {
+      width: 200,
+      height: 40,
+      borderTopRightRadius: 0,
+      borderBottomRightRadius: 0,
+      backgroundColor: '#FFF',
+      border: '1px solid',
+      color: '#36425A',
+    },
+    ok: { width: 200, height: 40, borderTopLeftRadius: 0, borderBottomLeftRadius: 0 },
+  },
 };
 
 class ConfirmationDialog extends PureComponent {
@@ -32,6 +52,9 @@ class ConfirmationDialog extends PureComponent {
   }
 
   renderTitle() {
+    if (this.props.isLoading) {
+      return <CircularProgress style={{ textAlign: 'center' }} />;
+    }
     if (typeof this.props.title === 'string') {
       return (
         <p style={{ color: '#36425A', textAlign: 'center', fontSize: 18 }}>{this.props.title}</p>
@@ -41,7 +64,8 @@ class ConfirmationDialog extends PureComponent {
   }
 
   render() {
-    if (this.props.open === false) {
+    const { open, isLoading } = this.props;
+    if (open === false) {
       return null;
     }
     const title = (
@@ -80,27 +104,23 @@ class ConfirmationDialog extends PureComponent {
     const actions = [
       <NgagerButton
         key={0}
-        style={{
-          width: 200,
-          height: 40,
-          borderTopRightRadius: 0,
-          borderBottomRightRadius: 0,
-          backgroundColor: '#FFF',
-          border: '1px solid',
-          color: '#36425A',
-        }}
+        style={isLoading ? styles.buttons.cancelOnly : styles.buttons.cancel}
         buttonText={i18n.t('Cancel')}
         onClick={() => this.handleOnPressButtons('CANCEL')}
       />,
-      <NgagerButton
-        key={1}
-        style={{ width: 200, height: 40, borderTopLeftRadius: 0, borderBottomLeftRadius: 0 }}
-        buttonText={i18n.t('OK')}
-        onClick={() => this.handleOnPressButtons('OK')}
-        isProcessing={this.props.isProcessing}
-        processingText={this.props.processingText}
-      />,
     ];
+    if (!isLoading) {
+      actions.push(
+        <NgagerButton
+          key={1}
+          style={styles.buttons.ok}
+          buttonText={i18n.t('OK')}
+          onClick={() => this.handleOnPressButtons('OK')}
+          isProcessing={this.props.isProcessing}
+          processingText={this.props.processingText}
+        />,
+      );
+    }
     return (
       <Dialog
         className="ngager-dialog"
@@ -170,6 +190,7 @@ ConfirmationDialog.propTypes = {
   title: PropTypes.oneOfType([PropTypes.string, PropTypes.func]).isRequired,
   onClickCancel: PropTypes.func,
   onClickOK: PropTypes.func.isRequired,
+  isLoading: PropTypes.bool,
   isProcessing: PropTypes.bool,
   processingText: PropTypes.string,
   modal: PropTypes.bool,
@@ -181,6 +202,7 @@ ConfirmationDialog.defaultProps = {
   open: false,
   type: 'confirm',
   onClickCancel: null,
+  isLoading: false,
   isProcessing: false,
   processingText: 'Processing...',
   modal: false,
