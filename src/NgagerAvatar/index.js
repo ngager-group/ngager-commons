@@ -81,8 +81,8 @@ margin: 0;
 
   .circle {
     position: absolute;
-    width: 80%;
-    height: 80%;
+    width: ${({ size, borderWidth }) => size - borderWidth * 2};
+    height: ${({ size, borderWidth }) => size - borderWidth * 2};
     border-radius: 100%;
     border: 20px solid #dddddd99;
   }
