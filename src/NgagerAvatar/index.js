@@ -11,6 +11,7 @@ const NgagerAvatar = ({ style, image, size, borderWidth, onClick, onMouseEnter, 
   const props = {
     mainColor,
     size,
+    borderWidth,
     style,
     className: 'ngager-avatar',
   }

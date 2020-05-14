@@ -219,6 +219,7 @@ class App extends Component {
             onMouseEnter={() => console.log('onMouseEnter')}
             toolTipId="profile-popover"
             size={200}
+            borderWidth={30}
             onClick={e => console.log(e.target)}
             image="https://awesomecloudstorage.blob.core.windows.net/profilepictures/7993c74f-c53c-4c01-8ae3-98638e9b2559.jpg"
           />
