@@ -27,7 +27,11 @@ class NgagerSearchField extends PureComponent {
   }
 
   componentDidMount() {
-    this.setState({ filter: this.props.initialValue }, () => this.textFilter.focus());
+    this.setState({ filter: this.props.initialValue }, () => {
+      if (this.props.autoFocus) {
+        this.textFilter.focus();
+      }
+    });
   }
 
   componentWillReceiveProps({ initialValue }) {
@@ -149,6 +153,7 @@ input[type='text'] {
 `
 
 NgagerSearchField.propTypes = {
+  autoFocus: PropTypes.bool,
   height: PropTypes.number,
   style: PropTypes.instanceOf(Object),
   initialValue: PropTypes.string,
@@ -163,6 +168,7 @@ NgagerSearchField.propTypes = {
 };
 
 NgagerSearchField.defaultProps = {
+  autoFocus: true,
   height: 48,
   style: {},
   initialValue: '',

@@ -93,6 +93,7 @@ https://ngager-group.github.io/ngager-commons/
 #### NgagerSearchField
 ```jsx
 NgagerSearchField.propTypes = {
+  autoFocus: PropTypes.bool,
   height: PropTypes.number,
   style: PropTypes.instanceOf(Object),
   initialValue: PropTypes.string,
@@ -107,6 +108,7 @@ NgagerSearchField.propTypes = {
 };
 
 NgagerSearchField.defaultProps = {
+  autoFocus: true,
   height: 48,
   style: {},
   initialValue: '',
