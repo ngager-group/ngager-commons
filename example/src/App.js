@@ -92,7 +92,8 @@ class App extends Component {
         <div className="section">
           <NgagerSelectField
             autoWidth
-            data={{ id: 1, name: 'Status' }}
+            data-id={1}
+            data-text="Hello 133"
             name="status"
             items={this.statusOptions}
             placeholder="Status"

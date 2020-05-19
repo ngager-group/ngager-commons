@@ -45,6 +45,7 @@ class NgagerSelectField extends PureComponent {
         underlineStyle: { display: 'none' },
       },
     };
+    // console.log(this.dataset);
     this.submitChangesDebounced = _debounce(this.submitChanges, props.wait);
   }
 
@@ -60,6 +61,16 @@ class NgagerSelectField extends PureComponent {
         this.submitChangesDebounced(selectedItem === undefined ? null : selectedItem);
       }
     }
+  }
+
+  getDataSet() {
+    const dataset = {};
+    Object.keys(this.props).forEach(key => {
+      if (key.startsWith('data-')) {
+        dataset[key.replace('data-', '')] = this.props[key];
+      }
+    });
+    return dataset;
   }
 
   getSelectedText() {
@@ -91,7 +102,7 @@ class NgagerSelectField extends PureComponent {
   }
 
   submitChanges(value) {
-    this.props.onChange(value, this.props.data);
+    this.props.onChange(value, this.getDataSet());
   }
 
   handleChange(event, index, value) {
@@ -309,7 +320,6 @@ const Container = styled.div`
 `
 
 NgagerSelectField.propTypes = {
-  data: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.instanceOf(Object)]),
   multiple: PropTypes.bool,
   autoWidth: PropTypes.bool,
   fullWidth: PropTypes.bool,

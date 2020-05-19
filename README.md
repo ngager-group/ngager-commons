@@ -45,7 +45,7 @@ export default class App extends Component {
     this.setState({ filterText });
   }
 
-  handleOnStatusChange(status) {
+  handleOnStatusChange(status, dataset) {
     console.log(status);
     this.setState({ status });
   }
@@ -73,6 +73,8 @@ export default class App extends Component {
         <NgagerSelectField
           autoWidth
           name="status"
+          data-id={222}
+          data-label="Status"
           items={this.statusOptions}
           enableSelectAll
           selectAllLabel="All"
@@ -146,7 +148,6 @@ CircularProgress.defaultProps = {
 #### NgagerSelectField
 ```jsx
 NgagerSelectField.propTypes = {
-  data: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.instanceOf(Object)]),
   multiple: PropTypes.bool,
   autoWidth: PropTypes.bool,
   fullWidth: PropTypes.bool,
@@ -169,7 +170,6 @@ NgagerSelectField.propTypes = {
 
 NgagerSelectField.defaultProps = {
   style: {},
-  data: null,
   multiple: false,
   autoWidth: false,
   fullWidth: true,
