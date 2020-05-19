@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 // import PropTypes from 'prop-types';
 import ReactTooltip from 'react-tooltip';
-import { NgagerSearchField, NgagerSelectField, NgagerErrorMessage, NgagerTreeView, ConfirmationDialog, NgagerButton, NgagerGroupButtons, NgagerIconButton, CircularProgress, eventListener, NgagerAvatar } from 'ngager-commons'
+import { NgagerSearchField, NgagerSelectField, NgagerErrorMessage, NgagerTreeView, ConfirmationDialog, NgagerButton, NgagerGroupButtons, NgagerIconButton, CircularProgress, eventListener, NgagerAvatar, EnhancedSelectField } from 'ngager-commons'
+
+const genders = [{ id: 0, name: 'Other' }, { id: 1, name: 'Male' }, { id: 2, name: 'Female' }];
 
 class App extends Component {
   constructor(props) {
@@ -236,6 +238,20 @@ class App extends Component {
       )
     }
 
+    if (type === 'EnhancedSelectField') {
+      return (
+        <div className="section">
+          <EnhancedSelectField
+            data-field={11}
+            data-type="string"
+            hintText="Enhanced Select Field"
+            items={genders}
+            onChange={(v, dataset) => console.log(v, dataset)}
+          />
+        </div>
+      );
+    }
+
     return null;
   }
 
@@ -252,6 +268,7 @@ class App extends Component {
           <button id="NgagerGroupButtons" onClick={this.handleOnClick}>NgagerGroupButtons</button>
           <button id="NgagerIconButton" onClick={this.handleOnClick}>NgagerIconButton</button>
           <button id="NgagerAvatar" onClick={this.handleOnClick}>NgagerAvatar</button>
+          <button id="EnhancedSelectField" onClick={this.handleOnClick}>EnhancedSelectField</button>
         </div>
         {this.renderComponent()}
         <ReactTooltip id="profile-popover" effect="solid" aria-haspopup="true" place="right" >

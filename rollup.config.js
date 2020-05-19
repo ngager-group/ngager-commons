@@ -26,6 +26,7 @@ export default {
     'src/MockApi/index.js',
     'src/NgagerAvatar/index.js',
     'src/SortableList/index.js',
+    'src/EnhancedSelectField/index.js',
     'src/SmartObject/index.js'
   ],
   output: {

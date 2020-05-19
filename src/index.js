@@ -11,6 +11,7 @@ import NgagerIconButton from './NgagerIconButton';
 import eventListener from './eventListener';
 import MockApi from './MockApi';
 import NgagerAvatar from './NgagerAvatar';
+import EnhancedSelectField from './EnhancedSelectField';
 import SortableList from './SortableList';
 
 export {
@@ -28,4 +29,5 @@ export {
   MockApi,
   NgagerAvatar,
   SortableList,
+  EnhancedSelectField,
 };

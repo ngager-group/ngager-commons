@@ -381,6 +381,32 @@ SortableList.defaultProps = {
 };
 ```
 
+#### EnhancedSelectField
+```jsx
+EnhancedSelectField.propTypes = {
+  defaultValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  hintText: PropTypes.string,
+  style: PropTypes.instanceOf(Object),
+  hintStyle: PropTypes.instanceOf(Object),
+  underlineStyle: PropTypes.instanceOf(Object),
+  items: PropTypes.instanceOf(Array),
+  renderItem: PropTypes.func,
+  onChange: PropTypes.func,
+  fontSize: PropTypes.number,
+  height: PropTypes.number,
+};
+
+EnhancedSelectField.defaultProps = {
+  defaultValue: null,
+  hintText: null,
+  hintStyle: null,
+  underlineStyle: null,
+  fontSize: 14,
+  height: 50,
+  renderItem: item => <MenuItem key={item.id} value={item.id} primaryText={item.name} />,
+};
+```
+
 ## License
 
 MIT © [ngager-group](https://github.com/ngager-group)
