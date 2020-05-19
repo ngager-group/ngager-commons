@@ -54,8 +54,9 @@ class App extends Component {
     this.setState({ filterText });
   }
 
-  handleOnStatusChange(status) {
-    console.log(status);
+  handleOnStatusChange(status, data) {
+    console.log('status', status);
+    console.log('data', data);
     this.setState({ status });
   }
 
@@ -91,11 +92,11 @@ class App extends Component {
         <div className="section">
           <NgagerSelectField
             autoWidth
+            data={{ id: 1, name: 'Status' }}
             name="status"
             items={this.statusOptions}
-            enableSelectAll
-            selectAllLabel="All"
             placeholder="Status"
+            // hintText="Status"
             onChange={this.handleOnStatusChange}
           />
           <span style={{ marginTop: 10, marginLeft: 1 }}>Status: <b>{status ? status.name : ''}</b> </span>

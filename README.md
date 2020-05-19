@@ -146,7 +146,7 @@ CircularProgress.defaultProps = {
 #### NgagerSelectField
 ```jsx
 NgagerSelectField.propTypes = {
-  name: PropTypes.string,
+  data: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.instanceOf(Object)]),
   multiple: PropTypes.bool,
   autoWidth: PropTypes.bool,
   fullWidth: PropTypes.bool,
@@ -158,6 +158,7 @@ NgagerSelectField.propTypes = {
   style: PropTypes.instanceOf(Object),
   defaultValue: PropTypes.oneOfType([PropTypes.instanceOf(Object), PropTypes.instanceOf(Array)]),
   placeholder: PropTypes.string,
+  hintText: PropTypes.string,
   color: PropTypes.string,
   items: PropTypes.instanceOf(Array).isRequired,
   onChange: PropTypes.func,
@@ -168,7 +169,7 @@ NgagerSelectField.propTypes = {
 
 NgagerSelectField.defaultProps = {
   style: {},
-  name: null,
+  data: null,
   multiple: false,
   autoWidth: false,
   fullWidth: true,
@@ -179,6 +180,7 @@ NgagerSelectField.defaultProps = {
   selectAllLabel: '',
   defaultValue: null,
   placeholder: null,
+  hintText: null,
   color: '#36425A',
   onChange: () => null,
   keyField: 'id',
