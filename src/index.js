@@ -13,6 +13,7 @@ import MockApi from './MockApi';
 import NgagerAvatar from './NgagerAvatar';
 import EnhancedSelectField from './EnhancedSelectField';
 import SortableList from './SortableList';
+import NgagerPagination from './NgagerPagination';
 
 export {
   NgagerSearchField,
@@ -30,4 +31,5 @@ export {
   NgagerAvatar,
   SortableList,
   EnhancedSelectField,
+  NgagerPagination,
 };

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 // import PropTypes from 'prop-types';
 import ReactTooltip from 'react-tooltip';
-import { NgagerSearchField, NgagerSelectField, NgagerErrorMessage, NgagerTreeView, ConfirmationDialog, NgagerButton, NgagerGroupButtons, NgagerIconButton, CircularProgress, eventListener, NgagerAvatar, EnhancedSelectField } from 'ngager-commons'
+import { NgagerSearchField, NgagerSelectField, NgagerErrorMessage, NgagerTreeView, ConfirmationDialog, NgagerButton, NgagerGroupButtons, NgagerIconButton, CircularProgress, eventListener, NgagerAvatar, EnhancedSelectField, NgagerPagination } from 'ngager-commons'
 
 const genders = [{ id: 0, name: 'Other' }, { id: 1, name: 'Male' }, { id: 2, name: 'Female' }];
 
@@ -242,11 +242,24 @@ class App extends Component {
       return (
         <div className="section">
           <EnhancedSelectField
+            height={50}
             data-field={11}
             data-type="string"
             hintText="Enhanced Select Field"
             items={genders}
             onChange={(v, dataset) => console.log(v, dataset)}
+          />
+        </div>
+      );
+    }
+
+    if (type === 'NgagerPagination') {
+      return (
+        <div className="section">
+          <NgagerPagination
+            displayPages
+            totalPages={5}
+            totalCount={156}
           />
         </div>
       );
@@ -269,6 +282,7 @@ class App extends Component {
           <button id="NgagerIconButton" onClick={this.handleOnClick}>NgagerIconButton</button>
           <button id="NgagerAvatar" onClick={this.handleOnClick}>NgagerAvatar</button>
           <button id="EnhancedSelectField" onClick={this.handleOnClick}>EnhancedSelectField</button>
+          <button id="NgagerPagination" onClick={this.handleOnClick}>NgagerPagination</button>
         </div>
         {this.renderComponent()}
         <ReactTooltip id="profile-popover" effect="solid" aria-haspopup="true" place="right" >

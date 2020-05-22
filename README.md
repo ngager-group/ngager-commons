@@ -407,6 +407,27 @@ EnhancedSelectField.defaultProps = {
 };
 ```
 
+#### NgagerPagination
+```jsx
+NgagerPagination.propTypes = {
+  pageSize: PropTypes.number,
+  totalPages: PropTypes.number.isRequired,
+  totalCount: PropTypes.number.isRequired,
+  onChangePage: PropTypes.func,
+  defaultPage: PropTypes.number,
+  displayPages: PropTypes.bool,
+  className: PropTypes.string,
+};
+
+NgagerPagination.defaultProps = {
+  pageSize: 30,
+  defaultPage: 1,
+  onChangePage: (p) => console.log(p),
+  displayPages: true,
+  className: '',
+};
+```
+
 ## License
 
 MIT © [ngager-group](https://github.com/ngager-group)

@@ -27,6 +27,7 @@ export default {
     'src/NgagerAvatar/index.js',
     'src/SortableList/index.js',
     'src/EnhancedSelectField/index.js',
+    'src/NgagerPagination/index.js',
     'src/SmartObject/index.js'
   ],
   output: {

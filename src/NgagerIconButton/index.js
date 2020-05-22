@@ -79,7 +79,7 @@ class NgagerIconButton extends PureComponent {
     return (
       <ConfirmationDialog
         isLoading={isLoading}
-        isProcessing={isProcessing || isLoading}
+        isProcessing={isProcessing}
         open
         type="confirm"
         title={confirmMessage}
