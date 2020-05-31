@@ -30,6 +30,7 @@ export default {
     'src/NgagerPagination/index.js',
     'src/CreateReducer/index.js',
     'src/AppStore/index.js',
+    'src/Api/index.js',
     'src/SmartObject/index.js'
   ],
   output: {
