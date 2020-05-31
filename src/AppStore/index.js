@@ -8,7 +8,7 @@ import storage from 'redux-persist/lib/storage';
 import * as logger from 'redux-logger';
 import { update } from './persist/persistActions';
 
-const createLogger = logger.__moduleExports.createLogger;
+const createLogger = logger.createLogger;
 
 export const storeConfig = {};
 

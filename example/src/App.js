@@ -1,7 +1,10 @@
+/* eslint class-methods-use-this: 0 */
 import React, { Component } from 'react'
 // import PropTypes from 'prop-types';
 import ReactTooltip from 'react-tooltip';
 import { NgagerSearchField, NgagerSelectField, NgagerErrorMessage, NgagerTreeView, ConfirmationDialog, NgagerButton, NgagerGroupButtons, NgagerIconButton, CircularProgress, eventListener, NgagerAvatar, EnhancedSelectField, NgagerPagination } from 'ngager-commons'
+
+import { storeConfig } from 'ngager-commons/dist/AppStore';
 
 const genders = [{ id: 0, name: 'Other' }, { id: 1, name: 'Male' }, { id: 2, name: 'Female' }];
 
@@ -34,9 +37,10 @@ class App extends Component {
     this.onGetConfirmMessage = this.onGetConfirmMessage.bind(this);
   }
 
-  // componentDidMount() {
-  //   this.props.addEventListener('click', this.handleOnClick);
-  // }
+  componentDidMount() {
+    // this.props.addEventListener('click', this.handleOnClick);
+    console.log('storeConfig', storeConfig);
+  }
 
   componentDidUpdate() {
     setTimeout(() => {
