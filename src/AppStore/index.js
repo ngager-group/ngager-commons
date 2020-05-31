@@ -5,8 +5,10 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import { persistStore, persistReducer } from 'redux-persist';
 import thunkMiddleware from 'redux-thunk';
 import storage from 'redux-persist/lib/storage';
-import { createLogger } from 'redux-logger';
+import * as logger from 'redux-logger';
 import { update } from './persist/persistActions';
+
+const createLogger = logger.__moduleExports.createLogger;
 
 export const storeConfig = {};
 
