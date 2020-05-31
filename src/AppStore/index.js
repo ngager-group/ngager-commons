@@ -12,13 +12,13 @@ const createLogger = logger.createLogger;
 
 export const storeConfig = {};
 
-export default function configureStore(initialState, rootReducer, middleWares = {}, blacklist = []) {
+export default function configureStore(initialState, rootReducer, authMiddleware, blacklist = []) {
   return new Promise((resolve, reject) => {
     try {
       const logger = createLogger({
         predicate: () => __LOCAL__,
       });
-      const enhancer = compose(applyMiddleware(...middleWares, thunkMiddleware, logger));
+      const enhancer = compose(applyMiddleware(authMiddleware, thunkMiddleware, logger));
       const persistConfig = {
         key: 'root',
         storage,
