@@ -28,6 +28,8 @@ export default {
     'src/SortableList/index.js',
     'src/EnhancedSelectField/index.js',
     'src/NgagerPagination/index.js',
+    'src/CreateReducer/index.js',
+    'src/AppStore/index.js',
     'src/SmartObject/index.js'
   ],
   output: {
