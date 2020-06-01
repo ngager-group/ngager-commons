@@ -39,35 +39,6 @@ export function refreshToken(dispatch, state) {
     return null;
   });
 
-  // Api.post(ENDPOINT.AUTH.LOGIN, {
-  //   grant_type: 'refresh_token',
-  //   username: state.session.username,
-  //   refresh_token: state.session.token.refresh_token,
-  // }, null, true).then((resp) => {
-  //   dispatch({
-  //     type: types.DONE_REFRESH_TOKEN,
-  //   });
-  //   dispatch({
-  //     type: types.LOGIN_SUCCESS,
-  //     data: {
-  //       username: state.session.username,
-  //       token: resp,
-  //     },
-  //   });
-  //   return resp ? Promise.resolve(resp) : Promise.reject({
-  //     message: 'could not refresh token',
-  //   });
-  // }).catch((ex) => {
-  //   console.log('exception refresh_token', ex);
-  //   dispatch({
-  //     type: types.DONE_REFRESH_TOKEN,
-  //   });
-  //   dispatch({
-  //     type: types.LOGIN_FAILED,
-  //     exception: ex,
-  //   });
-  // });
-
   dispatch({
     type: types.REFRESH_TOKEN,
     // we want to keep track of token promise in the state so that we don't try to refresh

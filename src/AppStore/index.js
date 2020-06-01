@@ -6,13 +6,14 @@ import { persistStore, persistReducer } from 'redux-persist';
 import thunkMiddleware from 'redux-thunk';
 import storage from 'redux-persist/lib/storage';
 import * as logger from 'redux-logger';
-import { update } from './persist/persistActions';
+import { update } from './persistActions';
+import authMiddleware from '../Authentication/authMiddleware';
 
 const createLogger = logger.createLogger;
 
 export const storeConfig = {};
 
-export default function configureStore(initialState, rootReducer, authMiddleware, blacklist = []) {
+export default function configureStore(initialState, rootReducer, blacklist = []) {
   return new Promise((resolve, reject) => {
     try {
       const logger = createLogger({

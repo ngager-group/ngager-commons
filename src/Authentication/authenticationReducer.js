@@ -1,4 +1,4 @@
-import createReducer from '../utils/createReducer';
+import createReducer from '../CreateReducer';
 import * as types from './authenticationActionTypes';
 
 export const isAuthenticated = createReducer(false, {
@@ -26,7 +26,7 @@ export const session = createReducer(
       newSession.currentUser = action.user;
       return newSession;
     },
-  }
+  },
 );
 
 export const refreshTokenPromise = createReducer(false, {

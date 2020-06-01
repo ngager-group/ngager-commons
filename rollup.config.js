@@ -29,7 +29,8 @@ export default {
     'src/EnhancedSelectField/index.js',
     'src/NgagerPagination/index.js',
     'src/CreateReducer/index.js',
-    'src/AppStore/index.js',
+    'src/AppStore/*.js',
+    'src/Authentication/*.js',
     'src/Api/index.js',
     'src/SmartObject/index.js'
   ],

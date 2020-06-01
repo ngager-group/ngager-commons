@@ -24,7 +24,7 @@ export function login(username, password) {
               username: username,
               token: resp,
             },
-          })
+          }),
         );
       } else {
         dispatch(loggedInFailed());
