@@ -3,7 +3,7 @@
 /* global __SUBSCRIPTION_KEY__:true */
 /* eslint prefer-object-spread: 0 */
 import { storeConfig } from '../AppStore';
-import { refreshToken, isExpired } from '../authentication/authMiddleware';
+import { refreshToken, isExpired } from '../Authentication/authMiddleware';
 
 export function errorHandling(error) {
   console.log('ERROR errorHandling', error);
