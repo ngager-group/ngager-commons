@@ -235,7 +235,7 @@ class Api {
       }
       const options = Object.assign({ method: 'GET' });
       options.headers = {
-        'Ocp-Apim-Subscription-Key': __NGAGER_SUBSCRIPTION_KEY__,
+        'Ocp-Apim-Subscription-Key': __SUBSCRIPTION_KEY__,
       };
       if (session.token) {
         options.headers.Authorization = `${session.token.token_type} ${session.token.access_token}`;
