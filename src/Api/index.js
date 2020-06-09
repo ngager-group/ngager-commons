@@ -234,7 +234,9 @@ class Api {
         url = `${host}${route}`;
       }
       const options = Object.assign({ method: 'GET' });
-      options.headers = {};
+      options.headers = {
+        'Ocp-Apim-Subscription-Key': __NGAGER_SUBSCRIPTION_KEY__,
+      };
       if (session.token) {
         options.headers.Authorization = `${session.token.token_type} ${session.token.access_token}`;
       }
