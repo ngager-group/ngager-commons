@@ -62,7 +62,7 @@ class NgagerButton extends PureComponent {
   }
 
   renderContent() {
-    let className = 'ngager-button';
+    let className = `ngager-button ${this.props.className}`;
     if (!this.props.rounded) {
       className = `${className} no-rounded`;
     }
@@ -154,6 +154,7 @@ a.ngager-button {
 `
 
 NgagerButton.propTypes = {
+  className: PropTypes.string,
   history: PropTypes.instanceOf(Object),
   confirmMessage: PropTypes.string,
   rounded: PropTypes.bool,
@@ -173,6 +174,7 @@ NgagerButton.propTypes = {
 };
 
 NgagerButton.defaultProps = {
+  className: '',
   history: null,
   confirmMessage: null,
   rounded: true,

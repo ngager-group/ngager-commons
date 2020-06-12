@@ -242,6 +242,7 @@ const data = {
 #### NgagerButton
 ```jsx
 NgagerButton.propTypes = {
+  className: PropTypes.string,
   history: PropTypes.instanceOf(Object),
   confirmMessage: PropTypes.string,
   rounded: PropTypes.bool,
@@ -280,6 +281,7 @@ NgagerButton.defaultProps = {
 #### NgagerGroupButtons
 ```jsx
 NgagerGroupButtons.propTypes = {
+  className: PropTypes.string,
   buttons: PropTypes.instanceOf(Array).isRequired,
   style: PropTypes.instanceOf(Object),
 };

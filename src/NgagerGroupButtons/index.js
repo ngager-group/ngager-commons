@@ -1,15 +1,13 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-class NgagerGroupButtons extends PureComponent {
-  render() {
-    return (
-      <Container style={this.props.style} className="group-buttons">
-        {this.props.buttons}
-      </Container>
-    );
-  }
+const NgagerGroupButtons = props => {
+  return (
+    <Container style={props.style} className={`group-buttons ${props.className}`}>
+      {props.buttons}
+    </Container>
+  );
 }
 
 const Container = styled.div`
@@ -65,11 +63,13 @@ max-height: 40;
 `
 
 NgagerGroupButtons.propTypes = {
+  className: PropTypes.string,
   buttons: PropTypes.instanceOf(Array).isRequired,
   style: PropTypes.instanceOf(Object),
 };
 
 NgagerGroupButtons.defaultProps = {
+  className: '',
   style: {},
 };
 
