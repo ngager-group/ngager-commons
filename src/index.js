@@ -14,6 +14,7 @@ import NgagerAvatar from './NgagerAvatar';
 import EnhancedSelectField from './EnhancedSelectField';
 import SortableList from './SortableList';
 import NgagerPagination from './NgagerPagination';
+import i18n from './i18n';
 
 export {
   NgagerSearchField,
@@ -32,4 +33,5 @@ export {
   SortableList,
   EnhancedSelectField,
   NgagerPagination,
+  i18n,
 };

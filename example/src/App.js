@@ -2,7 +2,8 @@
 import React, { Component } from 'react'
 // import PropTypes from 'prop-types';
 import ReactTooltip from 'react-tooltip';
-import { NgagerSearchField, NgagerSelectField, NgagerErrorMessage, NgagerTreeView, ConfirmationDialog, NgagerButton, NgagerGroupButtons, NgagerIconButton, CircularProgress, eventListener, NgagerAvatar, EnhancedSelectField, NgagerPagination } from 'ngager-commons'
+import { NgagerSearchField, NgagerSelectField, NgagerErrorMessage, NgagerTreeView, ConfirmationDialog, NgagerButton, NgagerGroupButtons, NgagerIconButton, CircularProgress, eventListener, NgagerAvatar, EnhancedSelectField, NgagerPagination, i18n } from 'ngager-commons'
+import { resources } from 'ngager-commons/dist/i18n'
 
 import { storeConfig } from 'ngager-commons/dist/AppStore';
 
@@ -40,6 +41,8 @@ class App extends Component {
   componentDidMount() {
     // this.props.addEventListener('click', this.handleOnClick);
     console.log('storeConfig', storeConfig);
+    console.log('resources', resources);
+    console.log('Test i18n', i18n.t('reset_password_message_success'))
   }
 
   componentDidUpdate() {
@@ -274,31 +277,31 @@ class App extends Component {
 
   render () {
     return (
-      <div className="container">
-        <div className="buttons">
-          <button id="NgagerSearchField" onClick={this.handleOnClick}>NgagerSearchField</button>
-          <button id="CircularProgress" onClick={this.handleOnClick}>CircularProgress</button>
-          <button id="NgagerSelectField" onClick={this.handleOnClick}>NgagerSelectField</button>
-          <button id="NgagerErrorMessage" onClick={this.handleOnClick}>NgagerErrorMessage</button>
-          <button id="NgagerTreeView" onClick={this.handleOnClick}>NgagerTreeView</button>
-          <button id="ConfirmationDialog" onClick={this.handleOnClick}>ConfirmationDialog</button>
-          <button id="NgagerGroupButtons" onClick={this.handleOnClick}>NgagerGroupButtons</button>
-          <button id="NgagerIconButton" onClick={this.handleOnClick}>NgagerIconButton</button>
-          <button id="NgagerAvatar" onClick={this.handleOnClick}>NgagerAvatar</button>
-          <button id="EnhancedSelectField" onClick={this.handleOnClick}>EnhancedSelectField</button>
-          <button id="NgagerPagination" onClick={this.handleOnClick}>NgagerPagination</button>
+        <div className="container">
+          <div className="buttons">
+            <button id="NgagerSearchField" onClick={this.handleOnClick}>NgagerSearchField</button>
+            <button id="CircularProgress" onClick={this.handleOnClick}>CircularProgress</button>
+            <button id="NgagerSelectField" onClick={this.handleOnClick}>NgagerSelectField</button>
+            <button id="NgagerErrorMessage" onClick={this.handleOnClick}>NgagerErrorMessage</button>
+            <button id="NgagerTreeView" onClick={this.handleOnClick}>NgagerTreeView</button>
+            <button id="ConfirmationDialog" onClick={this.handleOnClick}>ConfirmationDialog</button>
+            <button id="NgagerGroupButtons" onClick={this.handleOnClick}>NgagerGroupButtons</button>
+            <button id="NgagerIconButton" onClick={this.handleOnClick}>NgagerIconButton</button>
+            <button id="NgagerAvatar" onClick={this.handleOnClick}>NgagerAvatar</button>
+            <button id="EnhancedSelectField" onClick={this.handleOnClick}>EnhancedSelectField</button>
+            <button id="NgagerPagination" onClick={this.handleOnClick}>NgagerPagination</button>
+          </div>
+          {this.renderComponent()}
+          <ReactTooltip id="profile-popover" effect="solid" aria-haspopup="true" place="right" >
+             <p>This is a global react component tooltip</p>
+             <p>You can put every thing here</p>
+             <ul>
+               <li>Word</li>
+               <li>Chart</li>
+               <li>Else</li>
+             </ul>
+          </ReactTooltip>
         </div>
-        {this.renderComponent()}
-        <ReactTooltip id="profile-popover" effect="solid" aria-haspopup="true" place="right" >
-           <p>This is a global react component tooltip</p>
-           <p>You can put every thing here</p>
-           <ul>
-             <li>Word</li>
-             <li>Chart</li>
-             <li>Else</li>
-           </ul>
-        </ReactTooltip>
-      </div>
     );
   }
 }

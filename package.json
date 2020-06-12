@@ -1,6 +1,6 @@
 {
   "name": "ngager-commons",
-  "version": "1.0.54",
+  "version": "1.0.55",
   "description": "ReactJS common components",
   "author": "ngager-group",
   "license": "MIT",
@@ -36,9 +36,13 @@
     "redux-persist": "^6.0.0",
     "redux-thunk": "^2.3.0",
     "moment": "^2.26.0",
+    "i18next": "^19.4.4",
+    "react-i18next": "^11.4.0",
     "react-tap-event-plugin": "^2.0.1"
   },
   "devDependencies": {
+    "i18next": "^19.4.4",
+    "react-i18next": "^11.4.0",
     "moment": "^2.26.0",
     "react-redux": "^7.2.0",
     "redux": "^4.0.5",

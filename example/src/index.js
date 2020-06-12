@@ -1,7 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { I18nextProvider } from 'react-i18next';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import injectTapEventPlugin from 'react-tap-event-plugin';
+import { i18n } from 'ngager-commons';
 import { muiTheme } from './muiTheme';
 import './index.css'
 import App from './App'
@@ -9,13 +10,14 @@ import App from './App'
 const AppProvider = () => {
   return (
     <MuiThemeProvider muiTheme={muiTheme}>
-      <App />
+      <I18nextProvider i18n={i18n}>
+        <App />
+      </I18nextProvider>
     </MuiThemeProvider>
   )
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  injectTapEventPlugin();
   ReactDOM.render(<AppProvider />, document.getElementById('root'));
 });
 

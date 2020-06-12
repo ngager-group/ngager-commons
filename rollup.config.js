@@ -29,6 +29,8 @@ export default {
     'src/EnhancedSelectField/index.js',
     'src/NgagerPagination/index.js',
     'src/CreateReducer/index.js',
+    'src/DisplayableError/index.js',
+    'src/i18n/index.js',
     'src/AppStore/*.js',
     'src/Authentication/*.js',
     'src/Api/index.js',
