@@ -62,7 +62,7 @@ class NgagerButton extends PureComponent {
   }
 
   renderContent() {
-    let className = `ngager-button ${this.props.className}`;
+    let className = 'ngager-button';
     if (!this.props.rounded) {
       className = `${className} no-rounded`;
     }
@@ -113,7 +113,7 @@ class NgagerButton extends PureComponent {
   }
 
   render() {
-    return <Container>{this.renderContent()}</Container>;
+    return <Container className={this.props.className}>{this.renderContent()}</Container>;
   }
 }
 
