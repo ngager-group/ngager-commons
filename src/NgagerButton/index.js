@@ -113,7 +113,11 @@ class NgagerButton extends PureComponent {
   }
 
   render() {
-    return <Container className={this.props.className}>{this.renderContent()}</Container>;
+    let className = this.props.className;
+    if (this.props.fullWidth) {
+      className = `${className} fullwidth`;
+    }
+    return <Container width={this.props.width} className={className}>{this.renderContent()}</Container>;
   }
 }
 
@@ -127,7 +131,7 @@ const Container = styled.div`
   padding: 10px 30px;
   border-radius: 20px;
   font-size: 1em;
-  min-width: 160;
+  width: ${({ width }) => width}
   min-height: 40;
   border: 1px solid;
 
@@ -151,10 +155,20 @@ a.ngager-button {
   cursor: not-allowed;
   opacity: 0.6;
 }
+
+&.fullwidth {
+  width: 100%;
+
+  .ngager-button {
+    width: 100%;
+  }
+}
 `
 
 NgagerButton.propTypes = {
   className: PropTypes.string,
+  fullWidth: PropTypes.bool,
+  width: PropTypes.number,
   history: PropTypes.instanceOf(Object),
   confirmMessage: PropTypes.string,
   rounded: PropTypes.bool,
@@ -175,6 +189,8 @@ NgagerButton.propTypes = {
 
 NgagerButton.defaultProps = {
   className: '',
+  fullWidth: false,
+  width: 150,
   history: null,
   confirmMessage: null,
   rounded: true,

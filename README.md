@@ -243,6 +243,8 @@ const data = {
 ```jsx
 NgagerButton.propTypes = {
   className: PropTypes.string,
+  fullWidth: PropTypes.bool,
+  width: PropTypes.number,
   history: PropTypes.instanceOf(Object),
   confirmMessage: PropTypes.string,
   rounded: PropTypes.bool,
